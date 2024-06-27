@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 22:22:56 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/26 03:45:17 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/27 16:09:32 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,39 +17,42 @@ Phonebook::Phonebook() {
 }
 
 void Phonebook::addContact() {
-    if (contactsCount < 8) {
-        Contact contact;
-        std::string firstName;
-        std::string lastName;
-        std::string nickname;
-        std::string phoneNumber;
-        std::string darkestSecret;
+    Contact contact;
+    std::string firstName;
+    std::string lastName;
+    std::string nickname;
+    std::string phoneNumber;
+    std::string darkestSecret;
 
-        std::cout << "Enter first name: ";
-        std::getline(std::cin, firstName);
-        contact.setFirstName(firstName);
-
-        std::cout << "Enter last name: ";
-        std::getline(std::cin, lastName);
-        contact.setLastName(lastName);
-
-        std::cout << "Enter nickname: ";
-        std::getline(std::cin, nickname);
-        contact.setNickname(nickname);
-
-        std::cout << "Enter phone number: ";
-        std::getline(std::cin, phoneNumber);
-        contact.setPhoneNumber(phoneNumber);
-
-        std::cout << "Enter darkest secret: ";
-        std::getline(std::cin, darkestSecret);
-        contact.setDarkestSecret(darkestSecret);
-
-        contacts[contactsCount] = contact;
-        contactsCount++;
-    } else {
-        std::cout << "Phonebook is full" << std::endl;
+    if (contactsCount == 8) {
+        for (int i = 0; i < contactsCount - 1; i++) {
+            contacts[i] = contacts[i + 1];
+        }
+        contactsCount--;
     }
+
+    std::cout << "Enter first name: ";
+    std::getline(std::cin, firstName);
+    contact.setFirstName(firstName);
+
+    std::cout << "Enter last name: ";
+    std::getline(std::cin, lastName);
+    contact.setLastName(lastName);
+
+    std::cout << "Enter nickname: ";
+    std::getline(std::cin, nickname);
+    contact.setNickname(nickname);
+
+    std::cout << "Enter phone number: ";
+    std::getline(std::cin, phoneNumber);
+    contact.setPhoneNumber(phoneNumber);
+
+    std::cout << "Enter darkest secret: ";
+    std::getline(std::cin, darkestSecret);
+    contact.setDarkestSecret(darkestSecret);
+
+    contacts[contactsCount] = contact;
+    contactsCount++;
 }
 
 void Phonebook::searchContact() {

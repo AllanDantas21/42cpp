@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/26 03:23:30 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/26 04:56:14 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:57:29 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int main() {
     while (true) {
         std::cout << "Enter a command: ";
         std::getline(std::cin, command);
-
         if (command == "ADD") {
             phonebook.addContact();
         } else if (command == "SEARCH") {
@@ -30,6 +29,5 @@ int main() {
             std::cout << "Invalid command" << std::endl;
         }
     }
-
     return 0;
 }
