@@ -6,14 +6,14 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 22:22:56 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/27 16:09:32 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/01 05:07:23 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Phonebook.hpp"
 
 Phonebook::Phonebook() {
-    contactsCount = 0;
+    _contactsCount = 0;
 }
 
 void Phonebook::addContact() {
@@ -24,11 +24,11 @@ void Phonebook::addContact() {
     std::string phoneNumber;
     std::string darkestSecret;
 
-    if (contactsCount == 8) {
-        for (int i = 0; i < contactsCount - 1; i++) {
+    if (_contactsCount == 8) {
+        for (int i = 0; i < _contactsCount - 1; i++) {
             contacts[i] = contacts[i + 1];
         }
-        contactsCount--;
+        _contactsCount--;
     }
 
     std::cout << "Enter first name: ";
@@ -51,18 +51,18 @@ void Phonebook::addContact() {
     std::getline(std::cin, darkestSecret);
     contact.setDarkestSecret(darkestSecret);
 
-    contacts[contactsCount] = contact;
-    contactsCount++;
+    contacts[_contactsCount] = contact;
+    _contactsCount++;
 }
 
 void Phonebook::searchContact() {
-    if (contactsCount == 0) {
+    if (_contactsCount == 0) {
         std::cout << "Phonebook is empty" << std::endl;
         return;
     }
 
     std::cout << "     index|first name| last name|  nickname" << std::endl;
-    for (int i = 0; i < contactsCount; i++) {
+    for (int i = 0; i < _contactsCount; i++) {
         std::cout << std::setw(10) << i + 1 << "|";
         std::cout << std::setw(10) << contacts[i].getFirstName().substr(0, 10) << "|";
         std::cout << std::setw(10) << contacts[i].getLastName().substr(0, 10) << "|";

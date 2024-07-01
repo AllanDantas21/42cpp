@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 18:19:53 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/27 15:57:33 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/01 05:06:30 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 class Phonebook {
 private:
     Contact contacts[8];
-    int contactsCount;
+    int _contactsCount;
     
 public:
     Phonebook();
