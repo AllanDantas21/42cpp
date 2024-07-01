@@ -6,7 +6,7 @@ SRCS = Account.cpp tests.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-TARGET = phonebook
+TARGET = Account
 
 all: $(TARGET)
 
