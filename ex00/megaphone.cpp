@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 17:05:06 by aldantas          #+#    #+#             */
-/*   Updated: 2024/06/30 20:18:46 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/06/30 21:01:36 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ class Megaphone
 {	
 	public:
 		Megaphone(int argc, char **argv);
-		~Megaphone();
 		void		print_uppercase();
 	private:
 		int			_argc;
@@ -25,10 +24,8 @@ class Megaphone
 
 Megaphone::Megaphone(int argc, char **argv) {
 	_argc = argc;
-	_argv = argv;	
+	_argv = argv;
 }
-
-Megaphone::~Megaphone() {}
 
 void	Megaphone::print_uppercase()
 {
