@@ -10,7 +10,6 @@ $(NAME): $(SRC)
 	 $(CC) $(SRC) -o $(NAME)
 
 clean:
-	
 
 fclean: clean
 	$(RM) $(NAME)

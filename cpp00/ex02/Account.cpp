@@ -6,10 +6,9 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 01:02:38 by aldantas          #+#    #+#             */
-/*   Updated: 2024/07/01 16:12:07 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/07/01 16:47:11 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "Account.hpp"
 #include <iostream>
@@ -44,7 +43,6 @@ void Account::makeDeposit( int deposit )
     _totalNbDeposits++;
     std::cout << ";amount:" << _amount << ";nb_deposits:" << _nbDeposits << std::endl;
 }
-
 
 bool Account::makeWithdrawal( int withdrawal )
 {
@@ -106,10 +104,3 @@ int Account::getNbWithdrawals( void )
 {
     return _totalNbWithdrawals;
 }
-
-// void Account::displayTime( void )
-// {
-//     time_t now = time(0);
-//     tm *ltm = localtime(&now);
-//     std::cout << "[" << 1900 + ltm->tm_year << 1 + ltm->tm_mon << ltm->tm_mday << "_" << ltm->tm_hour << ltm->tm_min << ltm->tm_sec << "] ";
-// }
