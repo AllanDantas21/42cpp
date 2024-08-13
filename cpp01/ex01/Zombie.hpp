@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 00:08:40 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/10 19:37:43 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/13 15:06:44 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Zombie
 	std::string _name;
 
   public:
+	Zombie() {};
 	Zombie(std::string name) : _name(name){};
 	~Zombie();
 	void announce(void);
