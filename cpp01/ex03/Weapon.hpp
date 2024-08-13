@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 15:43:55 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/13 19:10:01 by aldantas         ###   ########.fr       */
+/*   Created: 2024/08/13 16:18:42 by aldantas          #+#    #+#             */
+/*   Updated: 2024/08/13 19:08:20 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-int main()
-{
-	std::string str = "HI THIS IS BRAIN";
-	std::string *stringPTR = &str;
-	std::string& stringREF = str;
+class Weapon{
+    private:
+        std::string _type;
+    public:
+        Weapon(std::string type): _type(type) {};
+        const std::string &getType() const;
+        void setType(const std::string &type); 
+};
 
-
-	std::cout << &str << '\n';
-	std::cout << stringPTR << '\n';
-	std::cout << &stringREF << '\n';
-
-	std::cout << str << '\n';
-	std::cout << *stringPTR << '\n';
-   	std::cout << stringREF << '\n';
-}
+#endif

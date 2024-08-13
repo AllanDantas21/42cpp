@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 15:43:55 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/13 19:10:01 by aldantas         ###   ########.fr       */
+/*   Created: 2024/08/13 16:21:50 by aldantas          #+#    #+#             */
+/*   Updated: 2024/08/13 18:57:27 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "iostream"
+#include "Weapon.hpp"
 
-int main()
-{
-	std::string str = "HI THIS IS BRAIN";
-	std::string *stringPTR = &str;
-	std::string& stringREF = str;
-
-
-	std::cout << &str << '\n';
-	std::cout << stringPTR << '\n';
-	std::cout << &stringREF << '\n';
-
-	std::cout << str << '\n';
-	std::cout << *stringPTR << '\n';
-   	std::cout << stringREF << '\n';
-}
+class HumanA {
+    private:
+        std::string _name;
+        Weapon &_weapon;
+    public:
+        HumanA(std::string name, Weapon &weapon): _name(name), _weapon(weapon) {};
+        void attack();
+};

@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 15:43:55 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/13 19:10:01 by aldantas         ###   ########.fr       */
+/*   Created: 2024/08/13 16:21:53 by aldantas          #+#    #+#             */
+/*   Updated: 2024/08/13 19:06:05 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "HumanB.hpp"
 
-int main()
-{
-	std::string str = "HI THIS IS BRAIN";
-	std::string *stringPTR = &str;
-	std::string& stringREF = str;
+HumanB::HumanB(std::string name) : _name(name) {
+    _weapon = 0;
+};
 
+void HumanB::attack() {
+    std::cout << _name << " attacks with his " << _weapon->getType() << std::endl;
+};
 
-	std::cout << &str << '\n';
-	std::cout << stringPTR << '\n';
-	std::cout << &stringREF << '\n';
-
-	std::cout << str << '\n';
-	std::cout << *stringPTR << '\n';
-   	std::cout << stringREF << '\n';
-}
+void HumanB::setWeapon( Weapon &weapon) {
+    _weapon = &weapon;
+};

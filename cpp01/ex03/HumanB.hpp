@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/13 15:43:55 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/13 19:10:01 by aldantas         ###   ########.fr       */
+/*   Created: 2024/08/13 16:21:48 by aldantas          #+#    #+#             */
+/*   Updated: 2024/08/13 19:04:30 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+#include "Weapon.hpp"
 
-int main()
-{
-	std::string str = "HI THIS IS BRAIN";
-	std::string *stringPTR = &str;
-	std::string& stringREF = str;
-
-
-	std::cout << &str << '\n';
-	std::cout << stringPTR << '\n';
-	std::cout << &stringREF << '\n';
-
-	std::cout << str << '\n';
-	std::cout << *stringPTR << '\n';
-   	std::cout << stringREF << '\n';
-}
+class HumanB {
+    private:
+        std::string _name;
+        Weapon *_weapon;
+    public:
+        HumanB(std::string name);
+        void setWeapon(Weapon &weapon);
+        void attack();
+};
