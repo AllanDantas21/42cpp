@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 20:00:20 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/14 00:17:36 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/14 11:12:14 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void Harl::complain(std::string level) {
             return ;
         std::cout << "Probably complaining about insignificant problems \n";
     }
-
 void Harl::_debug(void)
 {
     std::cout << "DEBUG::I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger. I really do! \n";
@@ -54,7 +53,7 @@ void Harl::_info(void)
 
 void Harl::_warning(void)
 {
-    std::cout << "I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month \n";
+    std::cout << "WARNING::I think I deserve to have some extra bacon for free. I’ve been coming for years whereas you started working here since last month \n";
 }
 
 void Harl::_error(void)
