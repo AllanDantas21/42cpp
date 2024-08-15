@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 15:38:57 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/15 18:49:40 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/15 20:08:23 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,81 @@ std::ostream &operator<<(std::ostream &os, const Fixed &Fixed)
 {
 	os << Fixed.toFloat();
 	return (os);
+};
+bool Fixed::operator>(const Fixed &other) const
+{
+	return (_Value > other._Value);
+};
+bool Fixed::operator<(const Fixed &other) const
+{
+	return (_Value < other._Value);
+};
+bool Fixed::operator>=(const Fixed &other) const
+{
+	return (_Value >= other._Value);
+};
+bool Fixed::operator<=(const Fixed &other) const
+{
+	return (_Value <= other._Value);
+};
+Fixed Fixed::operator+(const Fixed &other) const
+{
+	return (Fixed(toFloat() + other.toFloat()));
+}
+
+Fixed Fixed::operator-(const Fixed &other) const
+{
+	return (Fixed(toFloat() - other.toFloat()));
+}
+
+Fixed Fixed::operator*(const Fixed &other) const
+{
+	return (Fixed(toFloat() * other.toFloat()));
+}
+
+Fixed Fixed::operator/(const Fixed &other) const
+{
+	return (Fixed(toFloat() / other.toFloat()));
+}
+
+bool Fixed::operator==(const Fixed &other) const
+{
+	return (_Value == other._Value);
+};
+
+bool Fixed::operator!=(const Fixed &other) const
+{
+	return (_Value != other._Value);
+};
+
+Fixed &Fixed::operator++()
+{
+	++_Value;
+	return (*this);
+}
+
+Fixed Fixed::operator++(int)
+{
+	Fixed	temp;
+
+	temp = *this;
+	++(*this);
+	return (temp);
+}
+
+Fixed &Fixed::operator--()
+{
+	--_Value;
+	return (*this);
+}
+
+Fixed Fixed::operator--(int)
+{
+	Fixed	temp;
+
+	temp = *this;
+	--(*this);
+	return (temp);
 }
 
 Fixed::~Fixed()
@@ -55,17 +130,17 @@ Fixed::~Fixed()
 int Fixed::toInt(void) const
 {
 	return (_Value >> _RawBits);
-}
+};
 
 float Fixed::toFloat(void) const
 {
 	return (static_cast<float>(_Value) / (1 << _RawBits));
-}
+};
 
 int Fixed::getRawBits(void) const
 {
 	return (_Value);
-}
+};
 
 void Fixed::setRawBits(int const raw)
 {
