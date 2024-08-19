@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 15:38:57 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/15 20:08:23 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/19 10:42:39 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,18 +131,34 @@ int Fixed::toInt(void) const
 {
 	return (_Value >> _RawBits);
 };
-
 float Fixed::toFloat(void) const
 {
 	return (static_cast<float>(_Value) / (1 << _RawBits));
 };
-
 int Fixed::getRawBits(void) const
 {
 	return (_Value);
 };
-
 void Fixed::setRawBits(int const raw)
 {
 	_Value = raw;
 };
+Fixed &Fixed::min(Fixed &a, Fixed &b)
+{
+	return (a < b ? a : b);
+}
+
+Fixed const &Fixed::min(Fixed const &a, Fixed const &b)
+{
+	return (a < b ? a : b);
+}
+
+Fixed &Fixed::max(Fixed &a, Fixed &b)
+{
+	return (a < b ? b : a);
+}
+
+Fixed const &Fixed::max(Fixed const &a, Fixed const &b)
+{
+	return (a < b ? b : a);
+}
