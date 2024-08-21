@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:39:32 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/19 17:05:06 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/21 11:57:16 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,11 @@
 
 class ScavTrap : public ClapTrap {
     public:
-        ScavTrap(std::string name);
-}
+        ScavTrap();
+        ScavTrap(std::string name); 
+        ~ScavTrap();
+        void attack(std::string const & target);
+        void guardGate();
+    private:
+        bool _guardMode;
+};
