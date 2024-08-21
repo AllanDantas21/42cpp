@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/19 16:39:32 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/21 12:00:08 by aldantas         ###   ########.fr       */
+/*   Created: 2024/08/19 15:27:20 by aldantas          #+#    #+#             */
+/*   Updated: 2024/08/21 16:32:17 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
 
-class ScavTrap : public ClapTrap {
-    public:
-        ScavTrap();
-        ScavTrap(std::string name); 
-        ~ScavTrap();
-        void attack(std::string const & target);
-        void guardGate();
-    private:
-        bool _guardMode;
-};
+int main(){
+    FragTrap f("Dantas!");
+    
+    f.attack("allan");
+    f.highFivesGuys();
+}

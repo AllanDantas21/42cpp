@@ -6,10 +6,13 @@
 /*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:39:32 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/21 12:00:08 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/21 16:26:03 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCAV_TRAP_HPP
+#define SCAV_TRAP_HPP
+#include <iostream>
 #include "ClapTrap.hpp"
 
 class ScavTrap : public ClapTrap {
@@ -22,3 +25,5 @@ class ScavTrap : public ClapTrap {
     private:
         bool _guardMode;
 };
+
+#endif

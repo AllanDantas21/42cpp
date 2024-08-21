@@ -2,11 +2,11 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main.cpp ClapTrap.cpp 
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-TARGET = Serena,MyLove!
+TARGET = RepetitiveWork
 
 all: $(TARGET)
 
@@ -17,7 +17,7 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) $^ -o $@
 
 clean:
-	rm -f $(OBJS) scavTrap.o
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(TARGET)
