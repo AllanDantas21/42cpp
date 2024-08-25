@@ -6,7 +6,7 @@ SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp FragTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
-TARGET = RepetitiveWork
+TARGET =  NowIt’sWeird!
 
 all: $(TARGET)
 

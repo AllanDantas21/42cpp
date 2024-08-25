@@ -3,31 +3,32 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 16:37:37 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/21 17:09:31 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/25 18:15:42 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DIAMOND_TRAP_HPP
-#define DIAMOND_TRAP_HPP
+#ifndef DIAMONDTRAP_HPP
+#define DIAMONDTRAP_HPP
 
-#include <iostream>
-#include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "ScavTrap.hpp"
+#include <iostream>
+#include <string>
 
-class DiamondTrap : public ScavTrap, public FragTrap {
-	private:
-		std::string	name;
-	public:
-		DiamondTrap(const std::string& name);
-		DiamondTrap(const DiamondTrap& other);
-		DiamondTrap(void);
-		~DiamondTrap(void);
+class DiamondTrap : public FragTrap, public ScavTrap {
 
-		using	ScavTrap::attack;
-		void	whoAmI(void);
+public:
+    DiamondTrap();
+    DiamondTrap(std::string name);
+    DiamondTrap(DiamondTrap const& src);
+    ~DiamondTrap();
+    void whoAmI(void);
+
+private:
+    std::string _name;
 };
 
 #endif
