@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:02:45 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/26 19:48:15 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/26 20:00:12 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class FragTrap : virtual public ClapTrap {
         FragTrap();
     	FragTrap(std::string name); 
         ~FragTrap();
-        void attack(std::string const & target);
         void highFivesGuys(void);
 };
 
