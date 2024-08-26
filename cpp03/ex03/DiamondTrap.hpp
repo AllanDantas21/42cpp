@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 16:37:37 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/25 18:15:42 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/26 19:56:41 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,13 @@ class DiamondTrap : public FragTrap, public ScavTrap {
 public:
     DiamondTrap();
     DiamondTrap(std::string name);
-    DiamondTrap(DiamondTrap const& src);
     ~DiamondTrap();
     void whoAmI(void);
-
+    using ScavTrap::attack;
+     
 private:
     std::string _name;
+    
 };
 
 #endif
