@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 16:37:41 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/26 19:56:54 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/26 20:03:40 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ DiamondTrap::DiamondTrap()
     , ScavTrap()
 
 {
-    std::cout << "[DiamondTrap]" << " default constructor called" << std::endl;
+    std::cout << "[DiamondTrap]" << " default constructor called\n";
     this->_name = "Default Diamond";
     ClapTrap::_name = this->_name + "_clap_name";
     this->_hitPoints = FragTrap::_hitPoints;
@@ -28,7 +28,7 @@ DiamondTrap::DiamondTrap()
 
 DiamondTrap::DiamondTrap(std::string name)
 {
-    std::cout << "[DiamondTrap]" << " " << name << " created" << std::endl;
+    std::cout << "[DiamondTrap]" << " " << name << " created\n";
     this->_name = name;
     ClapTrap::_name = this->_name + "_clap_name";
     this->_hitPoints = FragTrap::_hitPoints;
@@ -38,11 +38,11 @@ DiamondTrap::DiamondTrap(std::string name)
 
 DiamondTrap::~DiamondTrap()
 {
-    std::cout <<  "[DiamondTrap]" << " " << this->getName() << " destroyed" << std::endl;
+    std::cout <<  "[DiamondTrap]" << " " << this->getName() << " destroyed\n";
 }
 
 void DiamondTrap::whoAmI(void)
 {
-    std::cout << "[DiamondTrap]" <<  " " << this->_name << " is " << ClapTrap::_name << std::endl;
+    std::cout << "[DiamondTrap]" <<  " " << this->_name << " is " << ClapTrap::_name << '\n';
 }
 
