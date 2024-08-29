@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:02:51 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/26 20:01:01 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/28 21:15:34 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ FragTrap::FragTrap(std::string name){
     this->_energyPoints = 100;
     this->_attackDamage = 30;
 }
+
 FragTrap::~FragTrap(){
     std::cout << "FragTrap default destructor called\n";
 }
