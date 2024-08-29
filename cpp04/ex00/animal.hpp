@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/28 21:31:43 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/28 21:33:37 by aldantas         ###   ########.fr       */
+/*   Created: 2024/08/28 21:33:55 by aldantas          #+#    #+#             */
+/*   Updated: 2024/08/28 21:44:20 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int main()
-{
-    const Animal* meta = new Animal();
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-    std::cout << j->getType() << " " << std::endl;
-    std::cout << i->getType() << " " << std::endl;
-    i->makeSound(); //will output the cat sound!
-    j->makeSound();
-    meta->makeSound();
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-    return 0;
-}
+#include <iostream>
+#include <string>
+
+class Animal {
+public:
+    Animal();
+
+    const std::string getType(void) const;
+    void setType(std::string type);
+    virtual void makeSound(void) const;
+
+protected:
+    std::string type;
+};
+
+#endif
