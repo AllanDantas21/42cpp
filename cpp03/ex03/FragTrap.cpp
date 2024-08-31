@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 12:02:51 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/28 21:25:51 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/31 14:56:22 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,19 @@ FragTrap::~FragTrap(){
 
 void FragTrap::highFivesGuys(){
     std::cout << "High five, guys!\n";
+}
+
+unsigned int FragTrap::getHP(void) const
+{
+    return _hitPoints;
+}
+
+unsigned int FragTrap::getEP(void) const
+{
+    return _energyPoints;
+}
+
+unsigned int FragTrap::getAD(void) const
+{
+    return _attackDamage;
 }

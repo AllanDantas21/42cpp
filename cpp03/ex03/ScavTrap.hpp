@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:39:32 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/26 19:46:43 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/31 14:55:23 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ class ScavTrap : virtual public ClapTrap {
         ~ScavTrap();
         void attack(std::string const & target);
         void guardGate();
+
+        unsigned int getHP(void) const;
+        unsigned int getEP(void) const;
+        unsigned int getAD(void) const;
     private:
         bool _guardMode;
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:39:27 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/21 16:21:51 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/31 14:57:40 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 ScavTrap::ScavTrap(void)
 {
     std::cout << "ScavTrap default constructor called" << std::endl;
+    this->_hitPoints = 100;
+    this->_energyPoints = 50;
+    this->_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string name)
@@ -50,4 +53,19 @@ void ScavTrap::attack(const std::string &target)
 	}
 	std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!\n";
 	this->_energyPoints--;
+}
+
+unsigned int ScavTrap::getHP(void) const
+{
+    return _hitPoints;
+}
+
+unsigned int ScavTrap::getEP(void) const
+{
+    return _energyPoints;
+}
+
+unsigned int ScavTrap::getAD(void) const
+{
+    return _attackDamage;
 }

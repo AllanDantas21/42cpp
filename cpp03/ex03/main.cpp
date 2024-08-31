@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 15:27:20 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/25 18:16:45 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/08/31 14:47:50 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,20 @@ int main()
         DiamondTrap norb("Norbert");
 
         norb.attack("Jeremy");
-        norb.takeDamage(25);
-        norb.takeDamage(18);
-        norb.attack("Valerie");
-        norb.attack("Cassie");
-        norb.attack("Victor");
-        norb.attack("Tristan");
-        norb.beRepaired(40);
-        norb.whoAmI();
-        norb.attack("Killian");
-        norb.highFivesGuys();
-        norb.takeDamage(8);
-        norb.attack("Dominic");
-        norb.highFivesGuys();
+        norb.getHP();
+        // norb.takeDamage(25);
+        // norb.takeDamage(18);
+        // norb.attack("Valerie");
+        // norb.attack("Cassie");
+        // norb.attack("Victor");
+        // norb.attack("Tristan");
+        // norb.beRepaired(40);
+        // norb.whoAmI();
+        // norb.attack("Killian");
+        // norb.highFivesGuys();
+        // norb.takeDamage(8);
+        // norb.attack("Dominic");
+        // norb.highFivesGuys();
     }
     return (0);
 }
