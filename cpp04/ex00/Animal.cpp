@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 21:37:38 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/02 22:42:56 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/02 23:24:37 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ Animal::Animal(){
 }
 
 Animal::Animal(const Animal& src){
-    std::cout << "Animal copy constructor called" << std::endl;
+    std::cout << "Animal copy constructor called\n";
     *this = src;
 }
 
 /* Destrutor*/
 Animal::~Animal(){
-    std::cout << "Animal " << this->type << " destroyed" << std::endl;
+    std::cout << "Animal " << this->type << " destroyed\n";
 }
 
 /* Overload */
@@ -37,7 +37,7 @@ Animal& Animal::operator=(Animal const& other){
 
 /* Metodos */
 void Animal::makeSound() const{
-    std::cout << "Spooklk" << std::endl;
+    std::cout << "Spooklk\n";
 }
 
 /* Getters e Setters */

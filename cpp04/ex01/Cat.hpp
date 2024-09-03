@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 21:58:52 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/02 22:22:31 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/02 23:31:37 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define CAT_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 #include <iostream>
 #include <string>
 
@@ -26,6 +27,10 @@ public:
 
     Cat& operator=(Cat const& rhs);
     virtual void makeSound(void) const;
+    Brain* getBrain(void) const;
+
+private:
+    Brain* _brain;
 };
 
 #endif 

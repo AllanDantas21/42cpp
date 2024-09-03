@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 22:02:32 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/02 22:32:16 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/02 23:31:43 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define DOG_HPP
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 #include <iostream>
 #include <string>
 
@@ -26,6 +27,10 @@ public:
 
     Dog& operator=(Dog const& rhs);
     virtual void makeSound(void) const;
+    Brain* getBrain(void) const;
+
+private:
+    Brain* _brain;
 };
 
 #endif 
