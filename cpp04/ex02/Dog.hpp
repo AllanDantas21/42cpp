@@ -6,19 +6,19 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 22:02:32 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/02 23:31:43 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/03 00:36:02 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef DOG_HPP
 #define DOG_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 #include <iostream>
 #include <string>
 
-class Dog : public Animal {
+class Dog : public AAnimal {
 
 public:
     Dog();

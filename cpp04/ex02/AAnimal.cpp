@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   AAnimal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,25 +10,25 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 /* Construtors */
-Animal::Animal(){
-    std::cout << "Animal default constructor called\n";
-    this->type = "Animal";
+AAnimal::AAnimal(){
+    std::cout << "AAnimal default constructor called\n";
+    this->type = "AAnimal";
 }
 
-Animal::Animal(const Animal& src){
-    std::cout << "Animal copy constructor called\n";
+AAnimal::AAnimal(const AAnimal& src){
+    std::cout << "AAnimal copy constructor called\n";
     *this = src;
 }
 
 /* Destrutor*/
-Animal::~Animal(){
-    std::cout << "Animal " << this->type << " destroyed\n";
+AAnimal::~AAnimal(){
+    std::cout << "AAnimal " << this->type << " destroyed\n";
 }
 
 /* Overload */
-Animal& Animal::operator=(Animal const& other){
+AAnimal& AAnimal::operator=(AAnimal const& other){
     if (this != &other) {
         this->type = other.getType();
     }
@@ -36,15 +36,15 @@ Animal& Animal::operator=(Animal const& other){
 }
 
 /* Metodos */
-void Animal::makeSound() const{
+void AAnimal::makeSound() const{
     std::cout << "Spooklk\n";
 }
 
 /* Getters e Setters */
-const std::string Animal::getType() const{
+const std::string AAnimal::getType() const{
     return this->type;
 }
 
-void Animal::setType(std::string type){
+void AAnimal::setType(std::string type){
     this->type = type;
 }

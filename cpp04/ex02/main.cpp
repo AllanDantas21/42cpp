@@ -6,20 +6,21 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 21:31:43 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/02 23:57:25 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/03 00:36:49 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
 
 int main(void)
 {
+
     {
-        const Animal* j = new Dog();
-        const Animal* i = new Cat();
+        const AAnimal* j = new Dog();
+        const AAnimal* i = new Cat();
 
         delete j;
         delete i;
@@ -27,7 +28,7 @@ int main(void)
     {
         /* Animals array */
         const int size = 30;
-        const Animal* animals[size];
+        const AAnimal* animals[size];
 
         for (int i = 0; i < size; i++) {
             if (i % 2 == 0)

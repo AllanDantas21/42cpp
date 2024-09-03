@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 22:01:45 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/02 23:32:15 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/03 00:37:01 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Cat::Cat(){
     this->_brain = new Brain();
 }
 
-Cat::Cat(const Cat& src): Animal(){
+Cat::Cat(const Cat& src): AAnimal(){
     std::cout << "Cat copy constructor called\n";
     *this = src;
 }

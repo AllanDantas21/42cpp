@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 22:01:45 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/02 23:32:33 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/03 00:41:05 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,6 @@ void Dog::makeSound() const{
     std::cout << "woof woof\n";
 }
 
-Brain* Dog::getBrain() const
-{
+Brain* Dog::getBrain() const{
     return this->_brain;
 }

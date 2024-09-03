@@ -6,19 +6,19 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 21:58:52 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/02 23:31:37 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/03 00:36:04 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CAT_HPP
 #define CAT_HPP
 
-#include "Animal.hpp"
+#include "AAnimal.hpp"
 #include "Brain.hpp"
 #include <iostream>
 #include <string>
 
-class Cat : public Animal {
+class Cat : public AAnimal {
 
 public:
     Cat();
