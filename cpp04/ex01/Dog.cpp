@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,34 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
+#include "Dog.hpp"
 
 /* Construtors */
-Cat::Cat(){
-    std::cout << "Cat default constructor called" << std::endl;
-    this->type = "Cat";
+Dog::Dog(){
+    std::cout << "Dog default constructor called" << std::endl;
+    this->type = "Dog";
 }
 
-Cat::Cat(const Cat& src): Animal(){
-    std::cout << "Cat copy constructor called" << std::endl;
+Dog::Dog(const Dog& src): Animal() {
+    std::cout << "Dog copy constructor called" << std::endl;
     *this = src;
 }
 
 /* Destructor */
-Cat::~Cat(){
-    std::cout << "Cat " << this->type << " destroyed" << std::endl;
+Dog::~Dog(){
+    std::cout << "Dog " << this->type << " destroyed" << std::endl;
 }
 
 /* Overload */
-Cat& Cat::operator=(Cat const& other){
+Dog& Dog::operator=(Dog const& other){
     if (this != &other) {
         this->type = other.getType();
     }
     return *this;
 }
 
-
 /* Methods */
-void Cat::makeSound() const{
-    std::cout << "Meow" << std::endl;
+void Dog::makeSound() const{
+    std::cout << "woof woof" << std::endl;
 }
