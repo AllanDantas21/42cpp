@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 15:27:42 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/28 21:11:42 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/06 17:47:45 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,28 @@ ClapTrap::ClapTrap()
     std::cout << "Default ClapTrap contructor called\n";
 }
 
+ClapTrap::ClapTrap(const ClapTrap &other) {
+    *this = other;
+    std::cout << "Copy Constructor -> " << _name << "\n";
+}
+
 ClapTrap::ClapTrap(std::string name) : _name(name), _hitPoints(100), _energyPoints(50), _attackDamage(20){
     std::cout << "Constructor ClapTrap-> " + _name << "\n";
 }
 
 ClapTrap::~ClapTrap(){
     std::cout << "Destructor ClapTrap -> " + _name << "\n";
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &other) {
+    if (this != &other) {
+        this->_name = other._name;
+        this->_hitPoints = other._hitPoints;
+        this->_energyPoints = other._energyPoints;
+        this->_attackDamage = other._attackDamage;
+    }
+    std::cout << "Copy Assignment Operator -> " << _name << "\n";
+    return *this;
 }
 
 void ClapTrap::attack(const std::string &target){

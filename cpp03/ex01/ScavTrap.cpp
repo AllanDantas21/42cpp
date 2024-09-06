@@ -3,22 +3,25 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:39:27 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/21 12:00:52 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/06 17:46:23 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(void)
-{
+ScavTrap::ScavTrap(void){
     std::cout << "ScavTrap default constructor called" << std::endl;
 }
 
-ScavTrap::ScavTrap(std::string name)
-{
+ScavTrap::ScavTrap(const ScavTrap &other) {
+    *this = other;
+    std::cout << "Copy Constructor -> " << _name << "\n";
+}
+
+ScavTrap::ScavTrap(std::string name){
     std::cout << "ScavTrap parameter constructor called\n";
     this->_name = name;
     this->_hitPoints = 100;
@@ -26,12 +29,12 @@ ScavTrap::ScavTrap(std::string name)
     this->_attackDamage = 20;
     this->_guardMode = false;
 }
-ScavTrap::~ScavTrap()
-{
+
+ScavTrap::~ScavTrap(){
     std::cout << "ScavTrap default destructor called\n";
 }
-void ScavTrap::guardGate(void)
-{
+
+void ScavTrap::guardGate(void){
 	if(this->_guardMode)
     {
         std::cout << "GuardMode on\n";
@@ -41,8 +44,7 @@ void ScavTrap::guardGate(void)
     std::cout << "GuardMode Activate\n";
 }
 
-void ScavTrap::attack(const std::string &target)
-{
+void ScavTrap::attack(const std::string &target){
 	if (this->_hitPoints <= 0 || this->_energyPoints <= 0)
 	{
 		std::cout << "ScavTrap " << this->_name << " doesn't have any hit points or energy points left.\n";

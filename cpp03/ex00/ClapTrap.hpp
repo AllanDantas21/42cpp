@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 15:27:46 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/19 16:38:44 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/06 17:43:23 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ class ClapTrap
 
   public:
 	ClapTrap(std::string name);
+	ClapTrap(const ClapTrap &other);
 	~ClapTrap();
+	ClapTrap &operator=(const ClapTrap &other);
 	int getLife(void);
 	void attack(const std::string &target);
 	void takeDamage(unsigned int amount);
