@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:39:27 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/31 14:57:40 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/09/06 17:24:28 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@ ScavTrap::ScavTrap(void)
     std::cout << "ScavTrap default constructor called" << std::endl;
     this->_hitPoints = 100;
     this->_energyPoints = 50;
-    this->_attackDamage = 20;
 }
 
 ScavTrap::ScavTrap(std::string name)
@@ -26,7 +25,6 @@ ScavTrap::ScavTrap(std::string name)
     this->_name = name;
     this->_hitPoints = 100;
     this->_energyPoints = 50;
-    this->_attackDamage = 20;
     this->_guardMode = false;
 }
 ScavTrap::~ScavTrap()
