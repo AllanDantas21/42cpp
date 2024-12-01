@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 22:01:45 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/17 12:01:27 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/11/30 22:24:00 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,15 @@ Cat::Cat(){
     this->_brain = new Brain();
 }
 
-Cat::Cat(const Cat& src): Animal(){
+Cat::Cat(Brain const& brain) {
+    std::cout << "Cat parameterized constructor called\n";
+    this->type = "Cat";
+    this->_brain = new Brain(brain);
+}
+
+Cat::Cat(const Cat& src) : Animal(), _brain(new Brain(*src._brain)) {
     std::cout << "Cat copy constructor called\n";
-    this->_brain = new Brain(*src._brain);
-    this->type = src.type;
+    *this = src;
 }
 
 /* Destructor */

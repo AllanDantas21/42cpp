@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 22:01:45 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/17 12:01:53 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/11/30 22:23:55 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,14 @@ Dog::Dog() {
     this->_brain = new Brain();
 }
 
-Dog::Dog(const Dog& src) : Animal() {
+Dog::Dog(Brain const& brain) {
+    std::cout << "Dog parameterized constructor called\n";
+    this->type = "Dog";
+    this->_brain = new Brain(brain);
+}
+
+Dog::Dog(const Dog& src) : Animal(), _brain(new Brain(*src._brain)) {
     std::cout << "Dog copy constructor called\n";
-    this->_brain = new Brain(*src._brain);
     *this = src;
 }
 

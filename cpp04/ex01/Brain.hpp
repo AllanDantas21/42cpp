@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 23:04:08 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/03 00:40:58 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/11/30 22:24:02 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ public:
 
     Brain& operator=(Brain const& other);
     void getIdea() const;
+    void setIdea(int index, const std::string& idea);
+    std::string getIdea(int index) const;
 };
 
 #endif

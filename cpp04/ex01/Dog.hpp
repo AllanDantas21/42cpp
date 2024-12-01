@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 22:02:32 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/03 00:41:07 by aldantas         ###   ########.fr       */
+/*   Updated: 2024/11/30 22:23:56 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Dog : public Animal {
 public:
     Dog();
     Dog(Dog const& src);
+    Dog(Brain const& brain);
     virtual ~Dog();
 
     Dog& operator=(Dog const& rhs);
@@ -33,4 +34,4 @@ private:
     Brain* _brain;
 };
 
-#endif 
+#endif
