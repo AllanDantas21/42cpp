@@ -13,11 +13,27 @@ private:
 
 public:
 	Bureaucrat(const std::string &name, int grade);
-	void signForm(Form &form);
+	Bureaucrat(const Bureaucrat &copy);
+	~Bureaucrat();
 
+
+	void			increaseGrade();
+	void			decreaseGrade();
+	class GradeTooHighException : public std::exception{
+			public:
+				virtual const char *	what() const throw();
+				virtual ~GradeTooHighException() throw() {}
+		};
+	class GradeTooLowException : public std::exception{
+		public:
+			virtual const char *	what() const throw();
+			virtual ~GradeTooLowException() throw() {}
+	};
 	const std::string &getName() const;
 	int getGrade() const;
 };
+
+std::ostream &	operator<<(std::ostream & o, Bureaucrat const &rSym);
 
 #endif
 

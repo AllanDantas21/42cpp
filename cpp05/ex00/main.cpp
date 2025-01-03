@@ -6,25 +6,25 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 01:45:38 by aldantas          #+#    #+#             */
-/*   Updated: 2024/11/30 22:41:10 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/02 23:01:21 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
 
-int main() {
+int	main() {
+	Bureaucrat *	Donald = NULL;
+	Bureaucrat *	Joe = NULL;
+
 	try {
-		Bureaucrat bob("Bob", 2);
-		Form formA("FormA", 1, 1);
-
-		std::cout << formA << std::endl;
-		bob.signForm(formA);
-		std::cout << formA << std::endl;
-	} catch (std::exception &e) {
-		std::cerr << e.what() << std::endl;
+		Donald = new Bureaucrat("Donald", 5);
+		Donald->increaseGrade();
 	}
-
-	return 0;
+	catch (const std::exception& e) {
+		std::cerr << e.what() << '\n';
+	}
+	Joe = new Bureaucrat(*Donald);
+	std::cout << *Donald << std::endl;
+	std::cout << *Joe << std::endl;
+	delete Donald;
 }
-
