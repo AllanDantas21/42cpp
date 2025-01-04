@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 01:45:34 by aldantas          #+#    #+#             */
-/*   Updated: 2025/01/04 02:05:34 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/04 02:09:53 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name), grade(grade) {
 	if (grade < 1)
-		throw std::invalid_argument("Grade is too high!");
-	if (grade > 150)
 		throw std::invalid_argument("Grade is too low!");
+	if (grade > 150)
+		throw std::invalid_argument("Grade is too high!");
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.name), grade(copy.grade) {}
