@@ -14,8 +14,8 @@ private:
 public:
 	Bureaucrat(const std::string &name, int grade);
 	Bureaucrat(const Bureaucrat &copy);
-	~Bureaucrat();
-
+	virtual ~Bureaucrat();
+	Bureaucrat& operator=(const Bureaucrat& rvalue);
 
 	void			increaseGrade();
 	void			decreaseGrade();

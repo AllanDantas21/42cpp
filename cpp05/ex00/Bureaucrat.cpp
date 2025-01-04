@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 01:45:34 by aldantas          #+#    #+#             */
-/*   Updated: 2025/01/02 23:01:22 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/04 02:05:34 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,14 @@ const char *Bureaucrat::GradeTooHighException::what() const throw() {
 
 const char *Bureaucrat::GradeTooLowException::what() const throw() {
 	return "Grade is too low!";
+}
+
+Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rvalue)
+{
+	if (this == &rvalue)
+		return (*this);
+	this->grade = rvalue.grade;
+	return (*this);
 }
 
 std::ostream &	operator<<(std::ostream & o, Bureaucrat const &rSym) {
