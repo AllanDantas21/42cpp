@@ -1,4 +1,15 @@
-#ifndef BUREAUCRAT_HPP
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/09/27 01:47:16 by aldantas          #+#    #+#             */
+/*   Updated: 2025/01/04 02:14:16 by aldantas         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #define BUREAUCRAT_HPP
 
 #include <iostream>
@@ -19,6 +30,10 @@ public:
 
 	void			increaseGrade();
 	void			decreaseGrade();
+
+	const std::string	&getName() const;
+	int					getGrade() const;
+
 	class GradeTooHighException : public std::exception{
 			public:
 				virtual const char *	what() const throw();
@@ -29,8 +44,6 @@ public:
 			virtual const char *	what() const throw();
 			virtual ~GradeTooLowException() throw() {}
 	};
-	const std::string &getName() const;
-	int getGrade() const;
 };
 
 std::ostream &	operator<<(std::ostream & o, Bureaucrat const &rSym);
