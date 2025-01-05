@@ -6,14 +6,17 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 01:47:16 by aldantas          #+#    #+#             */
-/*   Updated: 2025/01/04 02:14:16 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/05 14:44:50 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <string>
+#include "Form.hpp"
+
 
 class Form;
 
@@ -30,6 +33,8 @@ public:
 
 	void			increaseGrade();
 	void			decreaseGrade();
+	void			signForm(Form& form) const;
+
 
 	const std::string	&getName() const;
 	int					getGrade() const;

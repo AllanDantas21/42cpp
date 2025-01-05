@@ -1,21 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 01:47:16 by aldantas          #+#    #+#             */
-/*   Updated: 2025/01/04 02:14:16 by aldantas         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
+#ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
 #include <iostream>
 #include <string>
-
-class Form;
 
 class Bureaucrat {
 private:
@@ -25,15 +12,11 @@ private:
 public:
 	Bureaucrat(const std::string &name, int grade);
 	Bureaucrat(const Bureaucrat &copy);
-	virtual ~Bureaucrat();
-	Bureaucrat& operator=(const Bureaucrat& rvalue);
+	~Bureaucrat();
+
 
 	void			increaseGrade();
 	void			decreaseGrade();
-
-	const std::string	&getName() const;
-	int					getGrade() const;
-
 	class GradeTooHighException : public std::exception{
 			public:
 				virtual const char *	what() const throw();
@@ -44,6 +27,8 @@ public:
 			virtual const char *	what() const throw();
 			virtual ~GradeTooLowException() throw() {}
 	};
+	const std::string &getName() const;
+	int getGrade() const;
 };
 
 std::ostream &	operator<<(std::ostream & o, Bureaucrat const &rSym);
