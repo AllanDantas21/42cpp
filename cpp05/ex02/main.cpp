@@ -1,26 +1,47 @@
 #include "Bureaucrat.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
-int main() {
-    try {
-        Bureaucrat bob("Bob", 1);
-        ShrubberyCreationForm shrubbery("home");
-        RobotomyRequestForm robotomy("Bender");
-        PresidentialPardonForm pardon("Alice");
+int main()
+{
+	try
+	{
+		Bureaucrat	minjacho145 = Bureaucrat("minjacho145", 145);
+		Bureaucrat	minjacho72 = Bureaucrat("minjacho72", 72);
+		Bureaucrat	minjacho23 = Bureaucrat("minjacho23", 23);
+		Bureaucrat	boss = Bureaucrat("Boss", 3);
+		AForm		*shrubbery = new ShrubberyCreationForm("test");
+		AForm		*robotomy = new RobotomyRequestForm("robotomy");
+		AForm		*presidential = new PresidentialPardonForm("test");
 
-        bob.signForm(shrubbery);
-        bob.executeForm(shrubbery);
+		std::cout << minjacho145 << "\n" << boss << std::endl;
+		std::cout << *shrubbery << std::endl;
+		minjacho145.signForm(*shrubbery);
+		minjacho145.executeForm(*shrubbery);
+		boss.executeForm(*shrubbery);
+		std::cout << *shrubbery << std::endl;
+		delete shrubbery;
 
-        bob.signForm(robotomy);
-        bob.executeForm(robotomy);
+		std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+		std::cout << *robotomy << std::endl;
+		minjacho72.signForm(*robotomy);
+		minjacho72.executeForm(*robotomy);
+		boss.executeForm(*robotomy);
+		std::cout << *robotomy << std::endl;
+		delete robotomy;
 
-        bob.signForm(pardon);
-        bob.executeForm(pardon);
-    } catch (const std::exception &e) {
-        std::cerr << e.what() << std::endl;
-    }
-
-    return 0;
+		std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
+		std::cout << *presidential << std::endl;
+		minjacho23.signForm(*presidential);
+		minjacho23.executeForm(*presidential);
+		boss.executeForm(*presidential);
+		std::cout << *presidential << std::endl;
+		delete presidential;
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
 }
