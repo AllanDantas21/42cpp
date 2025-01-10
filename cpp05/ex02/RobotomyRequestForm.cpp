@@ -30,7 +30,7 @@ void	RobotomyRequestForm::execute(const Bureaucrat& executer) const
 
 	if (!this->getIsSigned())
 		throw AForm::NotSignedFormException();
-	if (this->getGradeToExcute() < executer.getGrade())
+	if (this->getGradeToExecute() < executer.getGrade())
 		throw AForm::GradeTooLowException();
 
 	std::cout << BLUE << "Vroom... vroom...\nBrrrr... brrrr...\nWhirr... whirr..." << RESET << std::endl;

@@ -1,19 +1,19 @@
 #include "AForm.hpp"
 
-AForm::AForm(const std::string& name, const int grade_to_sign, const int grade_to_excute):
-	name(name), is_signed(false), grade_to_sign(grade_to_sign), grade_to_excute(grade_to_excute)
+AForm::AForm(const std::string& name, const int grade_to_sign, const int grade_to_execute):
+	name(name), is_signed(false), grade_to_sign(grade_to_sign), grade_to_execute(grade_to_execute)
 {
-	if (grade_to_excute < highest_grade || grade_to_sign < highest_grade)
+	if (grade_to_execute < highest_grade || grade_to_sign < highest_grade)
 		throw AForm::GradeTooHighException();
-	if (grade_to_excute > lowest_grade || grade_to_sign > lowest_grade)
+	if (grade_to_execute > lowest_grade || grade_to_sign > lowest_grade)
 		throw AForm::GradeTooLowException();
 }
 
 AForm::AForm(const AForm& instance):
-	name(instance.name), is_signed(instance.is_signed), grade_to_sign(instance.grade_to_sign), grade_to_excute(instance.grade_to_excute)
+	name(instance.name), is_signed(instance.is_signed), grade_to_sign(instance.grade_to_sign), grade_to_execute(instance.grade_to_execute)
 {}
 
-// assign operator couldn't assgin name, grade_to_sign, grade_to_excute
+// assign operator couldn't assgin name, grade_to_sign, grade_to_execute
 AForm& AForm::operator=(const AForm& rvalue)
 {
 	if (this == &rvalue)
@@ -42,9 +42,9 @@ int AForm::getGradeToSign() const
 	return (grade_to_sign);
 }
 
-int AForm::getGradeToExcute() const
+int AForm::getGradeToExecute() const
 {
-	return (grade_to_excute);
+	return (grade_to_execute);
 }
 
 void	AForm::beSigned(const Bureaucrat& bureaucrat)
@@ -64,7 +64,7 @@ std::ostream& operator<<(std::ostream& os, const AForm& rvalue)
 	os 	<< "===== AForm ["<< rvalue.getName() << "]=====\n"
 		<< "Signed: " << is_signed_str << "\n"
 		<< "Grade to sign: " << rvalue.getGradeToSign() << "\n"
-		<< "Grade to excute: " << rvalue.getGradeToExcute()
+		<< "Grade to excute: " << rvalue.getGradeToExecute()
 		<< "\n====================";
 	return os;
 }
