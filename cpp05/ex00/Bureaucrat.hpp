@@ -10,30 +10,27 @@ private:
 	int 		grade;
 
 public:
-	// constructors/destructors
 	Bureaucrat(const std::string &name, int grade);
 	Bureaucrat(const Bureaucrat &copy);
+	Bureaucrat& operator=(const Bureaucrat& rvalue);
 	~Bureaucrat();
 
-	// methods
 	void				increaseGrade();
 	void				decreaseGrade();
+
 	const std::string	&getName() const;
 	int					getGrade() const;
 
-	// exceptions
 	class GradeTooHighException : public std::exception {
-		 public:
-			virtual const char *	what() const throw();
-			virtual ~GradeTooHighException() throw() {}
+	 public:
+		virtual const char *	what() const throw();
+		virtual ~GradeTooHighException() throw() {}
 		};
 	class GradeTooLowException : public std::exception {
-		public:
-			virtual const char *	what() const throw();
-			virtual ~GradeTooLowException() throw() {}
+	public:
+		virtual const char *	what() const throw();
+		virtual ~GradeTooLowException() throw() {}
 	};
-	// overloads
-	Bureaucrat& operator=(const Bureaucrat& rvalue);
 };
 
 std::ostream &	operator<<(std::ostream &o, Bureaucrat const &rSym);

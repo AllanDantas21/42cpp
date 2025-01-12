@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 01:45:38 by aldantas          #+#    #+#             */
-/*   Updated: 2025/01/12 16:42:24 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/12 17:26:54 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,13 @@
 
 int main()
 {
+	std::cout << std::endl;
 	try
 	{
-		Bureaucrat intern("intern", 145);
-		Bureaucrat boss("Boss", 3);
+		Bureaucrat intern("intern", 3);
+		Bureaucrat boss("Boss", 147);
 
+		std::cout << "****** increase grade ******" << std::endl;
 		while (true)
 		{
 			try
@@ -32,6 +34,8 @@ int main()
 				break;
 			}
 		}
+		std::cout << "****************************" << std::endl << std::endl;
+		std::cout << "****** decrease grade ******" << std::endl;
 		while (true)
 		{
 			try
@@ -45,6 +49,7 @@ int main()
 				break;
 			}
 		}
+		std::cout << "****************************" << std::endl << std::endl;
 		std::cout << intern << "\n" << boss << std::endl;
 	}
 	catch (std::exception& e)
