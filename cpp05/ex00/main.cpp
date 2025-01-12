@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 01:45:38 by aldantas          #+#    #+#             */
-/*   Updated: 2025/01/04 02:09:09 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/12 16:42:24 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main()
 		{
 			try
 			{
-				intern.decreaseGrade();
+				intern.increaseGrade();
 				std::cout << intern << std::endl;
 			}
 			catch (std::exception& e)
@@ -36,7 +36,7 @@ int main()
 		{
 			try
 			{
-				boss.increaseGrade();
+				boss.decreaseGrade();
 				std::cout << boss << std::endl;
 			}
 			catch (std::exception& e)
