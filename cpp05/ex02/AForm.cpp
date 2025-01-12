@@ -1,94 +1,66 @@
 #include "AForm.hpp"
 
-AForm::AForm(const std::string& name, const int grade_to_sign, const int grade_to_execute):
-	name(name), is_signed(false), grade_to_sign(grade_to_sign), grade_to_execute(grade_to_execute)
+// Constructors
+AForm::AForm(const std::string& _name, const int _grade_to_sign, const int _grade_to_exec):
+	_name(_name), _is_signed(false), _grade_to_sign(_grade_to_sign), _grade_to_exec(_grade_to_exec)
 {
-	if (grade_to_execute < highest_grade || grade_to_sign < highest_grade)
+	if (_grade_to_exec > 150 || _grade_to_sign > 150)
 		throw AForm::GradeTooHighException();
-	if (grade_to_execute > lowest_grade || grade_to_sign > lowest_grade)
+	if (_grade_to_exec < 1 || _grade_to_sign < 1)
 		throw AForm::GradeTooLowException();
 }
 
-AForm::AForm(const AForm& instance):
-	name(instance.name), is_signed(instance.is_signed), grade_to_sign(instance.grade_to_sign), grade_to_execute(instance.grade_to_execute)
+AForm::AForm(const AForm& copy):
+	_name(copy._name), _is_signed(copy._is_signed), _grade_to_sign(copy._grade_to_sign), _grade_to_exec(copy._grade_to_exec)
 {}
 
-// assign operator couldn't assgin name, grade_to_sign, grade_to_execute
-AForm& AForm::operator=(const AForm& rvalue)
-{
-	if (this == &rvalue)
+// Assignment operator
+AForm& AForm::operator=(const AForm& other) {
+	if (this == &other)
 		return (*this);
-	is_signed = rvalue.is_signed;
+	_is_signed = other._is_signed;
 	return (*this);
 }
 
+// Destructor
 AForm::~AForm()
 {
-	std::cout << "[AForm]: " << name << " destructed" << std::endl;
+	std::cout << "[AForm]: " << _name << " destructed" << std::endl;
 }
 
-const std::string AForm::getName() const
-{
-	return (name);
-}
+// Getters
+const std::string AForm::getName() const { return (_name); }
+bool AForm::getIsSigned() const { return (_is_signed); }
+int AForm::getGradeToSign() const { return (_grade_to_sign); }
+int AForm::getGradeToExec() const { return (_grade_to_exec); }
 
-bool AForm::getIsSigned() const
+// Methods
+void AForm::beSigned(const Bureaucrat& bureaucrat)
 {
-	return (is_signed);
-}
-
-int AForm::getGradeToSign() const
-{
-	return (grade_to_sign);
-}
-
-int AForm::getGradeToExecute() const
-{
-	return (grade_to_execute);
-}
-
-void	AForm::beSigned(const Bureaucrat& bureaucrat)
-{
-	if (bureaucrat.getGrade() <= grade_to_sign)
+	if (bureaucrat.getGrade() <= _grade_to_sign)
 	{
-		if (is_signed)
+		if (_is_signed)
 			throw AForm::AlreadySignedFormException();
-		is_signed = true;
+		_is_signed = true;
 	}
 	else
 		throw AForm::GradeTooLowException();
 }
-std::ostream& operator<<(std::ostream& os, const AForm& rvalue)
+
+// Overload operator
+std::ostream& operator<<(std::ostream& os, const AForm& other)
 {
-	const std::string is_signed_str = rvalue.getIsSigned() ? "true" : "false";
-	os 	<< "===== AForm ["<< rvalue.getName() << "]=====\n"
+	const std::string is_signed_str = other.getIsSigned() ? "true" : "false";
+	os 	<< "===== AForm ["<< other.getName() << "]=====\n"
 		<< "Signed: " << is_signed_str << "\n"
-		<< "Grade to sign: " << rvalue.getGradeToSign() << "\n"
-		<< "Grade to excute: " << rvalue.getGradeToExecute()
+		<< "Grade to sign: " << other.getGradeToSign() << "\n"
+		<< "Grade to execute: " << other.getGradeToExec()
 		<< "\n====================";
 	return os;
 }
 
-const char* AForm::GradeTooHighException::what() const throw()
-{
-	const char* reason = "Grade is too high for form";
-	return (reason);
-}
-
-const char* AForm::GradeTooLowException::what() const throw()
-{
-	const char* reason = "Grade is too low for form";
-	return (reason);
-}
-
-const char* AForm::AlreadySignedFormException::what() const throw()
-{
-	const char* reason = "AForm is already signed";
-	return (reason);
-}
-
-const char* AForm::NotSignedFormException::what() const throw()
-{
-	const char* reason = "AForm wasn't signed yet";
-	return (reason);
-}
+// Exceptions
+const char* AForm::GradeTooHighException::what() const throw() { return "Grade is too high for form"; }
+const char* AForm::GradeTooLowException::what() const throw() { return "Grade is too low for form"; }
+const char* AForm::AlreadySignedFormException::what() const throw() { return "AForm is already signed"; }
+const char* AForm::NotSignedFormException::what() const throw() { return "AForm wasn't signed yet"; }
