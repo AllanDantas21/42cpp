@@ -6,52 +6,52 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 14:27:47 by aldantas          #+#    #+#             */
-/*   Updated: 2025/01/12 17:05:02 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/12 17:40:28 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
 // Constructors
-Form::Form(const std::string& name, const int grade_to_sign, const int grade_to_exec):
-	name(name), is_signed(false), grade_to_sign(grade_to_sign), grade_to_exec(grade_to_exec)
+Form::Form(const std::string& _name, const int _grade_to_sign, const int _grade_to_exec):
+	_name(_name), _is_signed(false), _grade_to_sign(_grade_to_sign), _grade_to_exec(_grade_to_exec)
 {
-	if (grade_to_exec > 150 || grade_to_sign > 150)
+	if (_grade_to_exec > 150 || _grade_to_sign > 150)
 		throw Form::GradeTooHighException();
-	if (grade_to_exec < 1 || grade_to_sign < 1)
+	if (_grade_to_exec < 1 || _grade_to_sign < 1)
 		throw Form::GradeTooLowException();
 }
 
 Form::Form(const Form& copy):
-	name(copy.name), is_signed(copy.is_signed), grade_to_sign(copy.grade_to_sign), grade_to_exec(copy.grade_to_exec)
+	_name(copy._name), _is_signed(copy._is_signed), _grade_to_sign(copy._grade_to_sign), _grade_to_exec(copy._grade_to_exec)
 {}
 
 Form& Form::operator=(const Form& other) {
 	if (this == &other)
 		return (*this);
-	is_signed = other.is_signed;
+	_is_signed = other._is_signed;
 	return (*this);
 }
 
 Form::~Form()
 {
-	std::cout << "[Form]: " << name << " destructed" << std::endl;
+	std::cout << "[Form]: " << _name << " destructed" << std::endl;
 }
 
 // Getters
-const std::string Form::getName() const { return (name); }
-bool Form::getIsSigned() const { return (is_signed); }
-int  Form::getGradeToSign() const { return (grade_to_sign); }
-int  Form::getGradeToExcute() const { return (grade_to_exec); }
+const std::string Form::getName() const { return (_name); }
+bool Form::getIsSigned() const { return (_is_signed); }
+int  Form::getGradeToSign() const { return (_grade_to_sign); }
+int  Form::getGradeToExcute() const { return (_grade_to_exec); }
 
 // Methods
 void Form::beSigned(const Bureaucrat& bureaucrat)
 {
-	if (bureaucrat.getGrade() <= grade_to_sign)
+	if (bureaucrat.getGrade() <= _grade_to_sign)
 	{
-		if (is_signed)
+		if (_is_signed)
 			throw Form::AlreadySignedFormException();
-		is_signed = true;
+		_is_signed = true;
 	}
 	else
 		throw Form::GradeTooLowException();

@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 14:27:50 by aldantas          #+#    #+#             */
-/*   Updated: 2025/01/12 17:05:06 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/12 17:40:29 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ class Bureaucrat;
 class Form
 {
 	private:
-		const std::string	name;
-		bool				is_signed;
-		const int			grade_to_sign;
-		const int			grade_to_exec;
+		const std::string	_name;
+		bool				_is_signed;
+		const int			_grade_to_sign;
+		const int			_grade_to_exec;
 	public:
 		// Constructors
-		Form(const std::string& name, const int grade_to_sign, const int grade_to_exec);
+		Form(const std::string& _name, const int _grade_to_sign, const int _grade_to_exec);
 		Form(const Form& instance);
 		Form& operator=(const Form& rvalue);
 		~Form();
