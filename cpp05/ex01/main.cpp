@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 01:45:38 by aldantas          #+#    #+#             */
-/*   Updated: 2025/01/05 14:44:00 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/12 17:12:33 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int main()
 {
 	try
 	{
-		Bureaucrat intern("minjacho", 145);
+		Bureaucrat intern("aldantas", 145);
 		Bureaucrat boss("Boss", 3);
 		Form lunch_menu("lunch menu", 148, 149);
 		Form launch_bomb("launch bomb", 10, 10);

@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/05 14:27:47 by aldantas          #+#    #+#             */
-/*   Updated: 2025/01/05 14:49:25 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/12 17:05:02 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,44 +26,26 @@ Form::Form(const Form& copy):
 	name(copy.name), is_signed(copy.is_signed), grade_to_sign(copy.grade_to_sign), grade_to_exec(copy.grade_to_exec)
 {}
 
-// Assignment operator
-Form& Form::operator=(const Form& other)
-{
+Form& Form::operator=(const Form& other) {
 	if (this == &other)
 		return (*this);
 	is_signed = other.is_signed;
 	return (*this);
 }
 
-// Destructor
 Form::~Form()
 {
 	std::cout << "[Form]: " << name << " destructed" << std::endl;
 }
 
 // Getters
-const std::string Form::getName() const
-{
-	return (name);
-}
+const std::string Form::getName() const { return (name); }
+bool Form::getIsSigned() const { return (is_signed); }
+int  Form::getGradeToSign() const { return (grade_to_sign); }
+int  Form::getGradeToExcute() const { return (grade_to_exec); }
 
-bool Form::getIsSigned() const
-{
-	return (is_signed);
-}
-
-int Form::getGradeToSign() const
-{
-	return (grade_to_sign);
-}
-
-int Form::getGradeToExcute() const
-{
-	return (grade_to_exec);
-}
-
-// Member functions
-void	Form::beSigned(const Bureaucrat& bureaucrat)
+// Methods
+void Form::beSigned(const Bureaucrat& bureaucrat)
 {
 	if (bureaucrat.getGrade() <= grade_to_sign)
 	{
@@ -88,17 +70,6 @@ std::ostream& operator<<(std::ostream& os, const Form& other)
 }
 
 // Exceptions
-const char* Form::GradeTooHighException::what() const throw()
-{
-	return "Grade is too high for form";
-}
-
-const char* Form::GradeTooLowException::what() const throw()
-{
-	return "Grade is too low for form";
-}
-
-const char* Form::AlreadySignedFormException::what() const throw()
-{
-	return "Form is already signed";
-}
+const char* Form::GradeTooHighException::what() const throw() { return "Grade is too high for form"; }
+const char* Form::GradeTooLowException::what() const throw() { return "Grade is too low for form"; }
+const char* Form::AlreadySignedFormException::what() const throw() { return "Form is already signed"; }

@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 01:47:16 by aldantas          #+#    #+#             */
-/*   Updated: 2025/01/05 14:44:50 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/12 17:02:47 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,25 @@ private:
 public:
 	Bureaucrat(const std::string &name, int grade);
 	Bureaucrat(const Bureaucrat &copy);
-	virtual ~Bureaucrat();
 	Bureaucrat& operator=(const Bureaucrat& rvalue);
+	virtual ~Bureaucrat();
 
 	void			increaseGrade();
 	void			decreaseGrade();
 	void			signForm(Form& form) const;
 
-
 	const std::string	&getName() const;
 	int					getGrade() const;
 
 	class GradeTooHighException : public std::exception{
-			public:
-				virtual const char *	what() const throw();
-				virtual ~GradeTooHighException() throw() {}
-		};
+	public:
+		virtual const char *	what() const throw();
+		virtual ~GradeTooHighException() throw() {}
+	};
 	class GradeTooLowException : public std::exception{
-		public:
-			virtual const char *	what() const throw();
-			virtual ~GradeTooLowException() throw() {}
+	public:
+		virtual const char *	what() const throw();
+		virtual ~GradeTooLowException() throw() {}
 	};
 };
 
