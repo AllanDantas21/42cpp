@@ -1,25 +1,13 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 01:45:34 by aldantas          #+#    #+#             */
-/*   Updated: 2025/01/12 17:40:22 by aldantas         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Bureaucrat.hpp"
 
 // constructors & destructors
-Bureaucrat::Bureaucrat(const std::string &name, int _grade) : name(name), _grade(_grade) {
+Bureaucrat::Bureaucrat(const std::string &_name, int _grade) : _name(_name), _grade(_grade) {
 	if (_grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (_grade > 150)
 		throw Bureaucrat::GradeTooLowException();
 }
-Bureaucrat::Bureaucrat(const Bureaucrat &copy) : name(copy.name), _grade(copy._grade) {}
+Bureaucrat::Bureaucrat(const Bureaucrat &copy) : _name(copy._name), _grade(copy._grade) {}
 Bureaucrat::~Bureaucrat() {}
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rvalue) {
 	if (this == &rvalue)
@@ -29,7 +17,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rvalue) {
 }
 
 // getters
-const std::string &Bureaucrat::getName() const { return name; }
+const std::string &Bureaucrat::getName() const { return _name; }
 int Bureaucrat::getGrade() const { return _grade; }
 
 // methods
@@ -51,11 +39,11 @@ void Bureaucrat::signForm(Form& form) const {
 	try
 	{
 		form.beSigned(*this);
-		std::cout << this->name << " signed " << form.getName() << std::endl;
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
 	}
 	catch (std::exception& e)
 	{
-		std::cout << this->name << " couldn’t sign " << form.getName()
+		std::cout << this->_name << " couldn’t sign " << form.getName()
 			<< " because " << e.what() << std::endl;
 	}
 }
