@@ -3,6 +3,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
+#include "Intern.hpp"
 
 void processForm(Bureaucrat& signer, Bureaucrat& executor, AForm* form)
 {
@@ -24,22 +25,25 @@ int main()
 		Bureaucrat aldantas23("aldantas23", 23);
 		Bureaucrat boss("Boss", 3);
 
+		// Create an Intern
+		Intern someRandomIntern;
+
 		// Display initial Bureaucrat information
 		std::cout << aldantas145 << "\n" << boss << std::endl;
 
 		// Process ShrubberyCreationForm
 		std::cout << "Processing ShrubberyCreationForm\n";
-		processForm(aldantas145, boss, new ShrubberyCreationForm("Aldantas"));
+		processForm(aldantas145, boss, someRandomIntern.makeForm("shrubbery creation", "Aldantas"));
 		std::cout << "*********************************\n";
 
 		// Process RobotomyRequestForm
 		std::cout << "Processing RobotomyRequestForm\n";
-		processForm(aldantas72, boss, new RobotomyRequestForm("robotomy"));
+		processForm(aldantas72, boss, someRandomIntern.makeForm("robotomy request", "robotomy"));
 		std::cout << "*********************************\n";
 
 		// Process PresidentialPardonForm
 		std::cout << "Processing PresidentialPardonForm\n";
-		processForm(aldantas23, boss, new PresidentialPardonForm("test"));
+		processForm(aldantas23, boss, someRandomIntern.makeForm("presidential pardon", "test"));
 	}
 	catch (std::exception& e)
 	{
