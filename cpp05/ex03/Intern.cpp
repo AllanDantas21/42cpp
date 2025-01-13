@@ -33,14 +33,11 @@ AForm* Intern::makeForm(const std::string& form, const std::string& target)
         if (forms[i] == form) {
             switch (i) {
                 case 0:
-                    new_form = new ShrubberyCreationForm(target);
-                    break;
+                    new_form = new ShrubberyCreationForm(target); break;
                 case 1:
-                    new_form = new RobotomyRequestForm(target);
-                    break;
+                    new_form = new RobotomyRequestForm(target); break;
                 case 2:
-                    new_form = new PresidentialPardonForm(target);
-                    break;
+                    new_form = new PresidentialPardonForm(target); break;
             }
             if (new_form) {
                 std::cout << "Intern creates " << form << std::endl;

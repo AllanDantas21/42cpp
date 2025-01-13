@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/15 15:38:59 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/15 18:46:47 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/12 23:55:22 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ class Fixed
 	Fixed(const Fixed &copy);
 	Fixed(const int n);
 	Fixed(const float n);
+	~Fixed();
 
 	Fixed &operator=(const Fixed &copy);
-	~Fixed();
 	int getRawBits(void) const;
 	int toInt(void) const;
 	float toFloat(void) const;

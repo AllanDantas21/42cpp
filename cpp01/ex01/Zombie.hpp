@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/06 00:08:40 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/13 15:06:44 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/12 23:46:38 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ class Zombie
 {
   private:
 	std::string _name;
-
   public:
 	Zombie() {};
 	Zombie(std::string name) : _name(name){};

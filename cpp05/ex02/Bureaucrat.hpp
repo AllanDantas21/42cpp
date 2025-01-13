@@ -9,19 +9,18 @@ class AForm;
 
 class Bureaucrat {
 private:
-	std::string _name;
+	std::string name;
 	int 		_grade;
 
 public:
-	Bureaucrat(const std::string &_name, int _grade);
+	Bureaucrat(const std::string &name, int _grade);
 	Bureaucrat(const Bureaucrat &copy);
 	Bureaucrat& operator=(const Bureaucrat& rvalue);
 	virtual ~Bureaucrat();
 
 	void			increaseGrade();
 	void			decreaseGrade();
-	void			signForm(AForm& form) const;
-	void			executeForm(const AForm& form) const;
+	void			signForm(Form& form) const;
 
 	const std::string	&getName() const;
 	int					getGrade() const;
