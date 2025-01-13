@@ -4,41 +4,42 @@
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 
+void processForm(Bureaucrat& signer, Bureaucrat& executor, AForm* form)
+{
+	std::cout << *form << std::endl;
+	signer.signForm(*form);
+	signer.executeForm(*form);
+	executor.executeForm(*form);
+	std::cout << *form << std::endl;
+	delete form;
+}
+
 int main()
 {
 	try
 	{
-		Bureaucrat	minjacho145 = Bureaucrat("minjacho145", 145);
-		Bureaucrat	minjacho72 = Bureaucrat("minjacho72", 72);
-		Bureaucrat	minjacho23 = Bureaucrat("minjacho23", 23);
-		Bureaucrat	boss = Bureaucrat("Boss", 3);
-		AForm		*shrubbery = new ShrubberyCreationForm("test");
-		AForm		*robotomy = new RobotomyRequestForm("robotomy");
-		AForm		*presidential = new PresidentialPardonForm("test");
+		// Create Bureaucrats with different grades
+		Bureaucrat aldantas145("aldantas145", 145);
+		Bureaucrat aldantas72("aldantas72", 72);
+		Bureaucrat aldantas23("aldantas23", 23);
+		Bureaucrat boss("Boss", 3);
 
-		std::cout << minjacho145 << "\n" << boss << std::endl;
-		std::cout << *shrubbery << std::endl;
-		minjacho145.signForm(*shrubbery);
-		minjacho145.executeForm(*shrubbery);
-		boss.executeForm(*shrubbery);
-		std::cout << *shrubbery << std::endl;
-		delete shrubbery;
+		// Display initial Bureaucrat information
+		std::cout << aldantas145 << "\n" << boss << std::endl;
 
-		std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-		std::cout << *robotomy << std::endl;
-		minjacho72.signForm(*robotomy);
-		minjacho72.executeForm(*robotomy);
-		boss.executeForm(*robotomy);
-		std::cout << *robotomy << std::endl;
-		delete robotomy;
+		// Process ShrubberyCreationForm
+		std::cout << "Processing ShrubberyCreationForm\n";
+		processForm(aldantas145, boss, new ShrubberyCreationForm("Aldantas"));
+		std::cout << "*********************************\n";
 
-		std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n";
-		std::cout << *presidential << std::endl;
-		minjacho23.signForm(*presidential);
-		minjacho23.executeForm(*presidential);
-		boss.executeForm(*presidential);
-		std::cout << *presidential << std::endl;
-		delete presidential;
+		// Process RobotomyRequestForm
+		std::cout << "Processing RobotomyRequestForm\n";
+		processForm(aldantas72, boss, new RobotomyRequestForm("robotomy"));
+		std::cout << "*********************************\n";
+
+		// Process PresidentialPardonForm
+		std::cout << "Processing PresidentialPardonForm\n";
+		processForm(aldantas23, boss, new PresidentialPardonForm("test"));
 	}
 	catch (std::exception& e)
 	{

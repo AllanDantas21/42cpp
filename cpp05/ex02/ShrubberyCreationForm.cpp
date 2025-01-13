@@ -32,14 +32,18 @@ void	ShrubberyCreationForm::execute(const Bureaucrat& executer) const
 	std::ofstream ostrm(filename.c_str());
 	if (!ostrm.is_open())
 		throw ShrubberyCreationForm::FileCantOpenException();
-	ostrm	<< "  0QQQQQ0   \n"
-			<< " QQQQQQQQQ \n"
-			<< " Q0QQ00QQ0 \n"
-			<< "  00000Q0  \n"
-			<< "    | |   \n"
-			<< "    | |   \n"
-			<< "    | |   \n"
-			<< "    ===   \n" << std::endl;
+	ostrm	<< "        v .   ._, |_  .,\n"
+			<< "           `-._\\/  .  \\ /    |/_\n"
+			<< "               \\\\  _\\, y | \\\\//\n"
+			<< "         _\\_.___\\\\, \\\\/ -.\\||\n"
+			<< "           `7-,--.`._||  / / ,\n"
+			<< "           /'     `-. `./ / |/_.'\n"
+			<< "                     |    |//\n"
+			<< "                     |_    /\n"
+			<< "                     |-   |\n"
+			<< "                     |   =|\n"
+			<< "                     |    |\n"
+			<< "--------------------/ ,  . \\--------._\n" << std::endl;
 	ostrm.close();
 }
 

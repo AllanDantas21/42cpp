@@ -48,14 +48,13 @@ void AForm::beSigned(const Bureaucrat& bureaucrat)
 }
 
 // Overload operator
-std::ostream& operator<<(std::ostream& os, const AForm& other)
+std::ostream& operator<<(std::ostream& os, const AForm& form)
 {
-	const std::string is_signed_str = other.getIsSigned() ? "true" : "false";
-	os 	<< "===== AForm ["<< other.getName() << "]=====\n"
-		<< "Signed: " << is_signed_str << "\n"
-		<< "Grade to sign: " << other.getGradeToSign() << "\n"
-		<< "Grade to execute: " << other.getGradeToExec()
-		<< "\n====================";
+	os << "******* AForm [" << form.getName() << "] *********\n"
+	   << "Signed: " << (form.getIsSigned() ? "true" : "false") << "\n"
+	   << "Grade to sign: " << form.getGradeToSign() << "\n"
+	   << "Grade to execute: " << form.getGradeToExec() << "\n"
+	   << "*********************";
 	return os;
 }
 

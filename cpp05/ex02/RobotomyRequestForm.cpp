@@ -8,20 +8,20 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& instance):
 	AForm(instance), target(instance.target)
 {}
 
-RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& rvalue)
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& value)
 {
-	if (this == &rvalue)
+	if (this == &value)
 		return (*this);
-	target = rvalue.target;
+	target = value.target;
 	return (*this);
 }
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {
-	std::cout << "[RobotomyRequestForm]: destructed" << std::endl;
+	std::cout << "RobotomyRequestForm: destructed" << std::endl;
 }
 
-void	RobotomyRequestForm::execute(const Bureaucrat& executer) const
+void	RobotomyRequestForm::execute(const Bureaucrat& exec) const
 {
 	const std::string RED = "\033[0;31m";
 	const std::string GREEN = "\033[0;32m";
@@ -30,10 +30,9 @@ void	RobotomyRequestForm::execute(const Bureaucrat& executer) const
 
 	if (!this->getIsSigned())
 		throw AForm::NotSignedFormException();
-	if (this->getGradeToExec() < executer.getGrade())
+	if (this->getGradeToExec() < exec.getGrade())
 		throw AForm::GradeTooLowException();
 
-	std::cout << BLUE << "Vroom... vroom...\nBrrrr... brrrr...\nWhirr... whirr..." << RESET << std::endl;
 	std::srand(std::time(0));
 	if (std::rand() % 2 == 0)
 		std::cout << GREEN << target << " successfully robotomized" << RESET << std::endl;
