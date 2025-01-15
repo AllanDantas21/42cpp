@@ -1,14 +1,16 @@
 #include "Data.hpp"
 
-Data(int nbr) : _nbr(nbr) {}
+Data::Data(int nbr) : _nbr(nbr) {}
 
-~Data() {}
+Data::~Data() {}
 
-Data(const Data& other) {
+Data::Data(const Data& other) : _nbr(other._nbr) { }
 
+Data& Data::operator=(const Data& other) {
+    if (this != &other) {
+        this->_nbr = other._nbr;
+    }
+    return *this;
 }
-Data& operator=(const Data& other){
 
-}
-
-int getInt(void) const { return this->_nbr; }
+int Data::getInt(void) const { return this->_nbr; }

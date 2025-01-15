@@ -4,7 +4,7 @@
 class Data {
     private:
         int _nbr;
-        data();
+        Data();
 
     public:
         Data(int nbr);
