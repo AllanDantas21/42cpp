@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 16:37:41 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/06 17:39:06 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:23:31 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,17 +41,7 @@ void DiamondTrap::whoAmI(void)
     std::cout << "[DiamondTrap]" <<  " " << this->_name << " is " << ClapTrap::_name << '\n';
 }
 
-unsigned int DiamondTrap::getHP(void) const
-{
-    return _hitPoints;
-}
+unsigned int DiamondTrap::getHP(void) const { return _hitPoints; }
+unsigned int DiamondTrap::getEP(void) const { return _energyPoints; }
+unsigned int DiamondTrap::getAD(void) const { return _attackDamage; }
 
-unsigned int DiamondTrap::getEP(void) const
-{
-    return _energyPoints;
-}
-
-unsigned int DiamondTrap::getAD(void) const
-{
-    return _attackDamage;
-}

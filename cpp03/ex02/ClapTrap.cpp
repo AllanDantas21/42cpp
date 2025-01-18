@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 15:27:42 by aldantas          #+#    #+#             */
-/*   Updated: 2024/08/21 16:36:39 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:20:48 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,5 @@ void ClapTrap::beRepaired(unsigned int amount){
     _hitPoints += amount;
 }
 
-int ClapTrap::getLife(void){
-    return (_hitPoints);
-}
+int ClapTrap::getLife(void){ return (_hitPoints); }
 

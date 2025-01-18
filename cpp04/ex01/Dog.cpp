@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 22:01:45 by aldantas          #+#    #+#             */
-/*   Updated: 2024/11/30 22:23:55 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:29:43 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,4 @@ void Dog::makeSound() const {
     std::cout << "woof woof\n";
 }
 
-Brain* Dog::getBrain() const {
-    return this->_brain;
-}
+Brain* Dog::getBrain() const { return this->_brain; }

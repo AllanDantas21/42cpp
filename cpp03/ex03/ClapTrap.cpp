@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 15:27:42 by aldantas          #+#    #+#             */
-/*   Updated: 2024/11/30 22:19:50 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:22:53 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,38 +45,14 @@ void ClapTrap::beRepaired(unsigned int amount){
     _hitPoints += amount;
 }
 
-std::string ClapTrap::getName(void) const
-{
-    return _name;
-}
+std::string ClapTrap::getName(void) const { return _name; }
+unsigned int ClapTrap::getHP(void) const { return _hitPoints; }
+unsigned int ClapTrap::getEP(void) const { return _energyPoints; }
+unsigned int ClapTrap::getAD(void) const { return _attackDamage; }
+void ClapTrap::setHP(unsigned int amount) { _hitPoints = amount; }
+void ClapTrap::setEP(unsigned int amount) { _energyPoints = amount; }
+void ClapTrap::setAD(unsigned int amount) { _attackDamage = amount; }
 
-unsigned int ClapTrap::getHP(void) const
-{
-    return _hitPoints;
-}
 
-unsigned int ClapTrap::getEP(void) const
-{
-    return _energyPoints;
-}
 
-unsigned int ClapTrap::getAD(void) const
-{
-    return _attackDamage;
-}
-
-void ClapTrap::setHP(unsigned int amount)
-{
-    _hitPoints = amount;
-}
-
-void ClapTrap::setEP(unsigned int amount)
-{
-    _energyPoints = amount;
-}
-
-void ClapTrap::setAD(unsigned int amount)
-{
-    _attackDamage = amount;
-}
 

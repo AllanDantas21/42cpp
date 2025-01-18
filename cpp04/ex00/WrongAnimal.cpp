@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 21:30:33 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/02 22:42:50 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:28:26 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,5 @@ void WrongAnimal::makeSound() const{
     std::cout << "bla ble bli blo blu\n";
 }
 
-const std::string WrongAnimal::getType() const{
-    return this->type;
-}
-
-void WrongAnimal::setType(std::string type){
-    this->type = type;
-}
+const std::string WrongAnimal::getType() const { return this->type; }
+void WrongAnimal::setType(std::string type) { this->type = type; }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 21:33:55 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/02 22:32:35 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:27:38 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,17 @@
 #include <string>
 
 class Animal {
-public:
-    Animal();
-    Animal(Animal const& src);
-    virtual ~Animal();
-
-    Animal& operator=(Animal const& other);
-    const std::string getType(void) const;
-    void setType(std::string type);
-    virtual void makeSound(void) const;
-
-protected:
-    std::string type;
+    protected:
+        std::string type;
+    public:
+        Animal();
+        Animal(Animal const& src);
+        virtual ~Animal();
+    
+        Animal& operator=(Animal const& other);
+        const std::string getType(void) const;
+        void setType(std::string type);
+        virtual void makeSound(void) const;
 };
 
 #endif

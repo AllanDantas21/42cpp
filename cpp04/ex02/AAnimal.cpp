@@ -41,10 +41,5 @@ void AAnimal::makeSound() const{
 }
 
 /* Getters e Setters */
-const std::string AAnimal::getType() const{
-    return this->type;
-}
-
-void AAnimal::setType(std::string type){
-    this->type = type;
-}
+const std::string AAnimal::getType() const { return this->type; }
+void AAnimal::setType(std::string type) { this->type = type; }

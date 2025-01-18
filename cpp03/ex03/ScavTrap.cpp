@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ScavTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 16:39:27 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/06 17:24:28 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:25:45 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,17 +53,6 @@ void ScavTrap::attack(const std::string &target)
 	this->_energyPoints--;
 }
 
-unsigned int ScavTrap::getHP(void) const
-{
-    return _hitPoints;
-}
-
-unsigned int ScavTrap::getEP(void) const
-{
-    return _energyPoints;
-}
-
-unsigned int ScavTrap::getAD(void) const
-{
-    return _attackDamage;
-}
+unsigned int ScavTrap::getHP(void) const { return _hitPoints; }
+unsigned int ScavTrap::getEP(void) const { return _energyPoints; }
+unsigned int ScavTrap::getAD(void) const { return _attackDamage; }
