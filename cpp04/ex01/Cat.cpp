@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 22:01:45 by aldantas          #+#    #+#             */
-/*   Updated: 2024/11/30 22:24:00 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:29:34 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,4 @@ void Cat::makeSound() const{
     std::cout << "Meow" << std::endl;
 }
 
-Brain* Cat::getBrain() const
-{
-    return this->_brain;
-}
+Brain* Cat::getBrain() const { return this->_brain; }

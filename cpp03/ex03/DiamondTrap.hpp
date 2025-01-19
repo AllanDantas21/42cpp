@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/21 16:37:37 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/06 17:38:27 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:23:50 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 #include <string>
 
 class DiamondTrap : public FragTrap, public ScavTrap {
-
+private:
+    std::string _name;
 public:
     DiamondTrap();
     DiamondTrap(std::string name);
@@ -29,10 +30,6 @@ public:
     unsigned int getHP(void) const;
     unsigned int getEP(void) const;
     unsigned int getAD(void) const;
-
-private:
-    std::string _name;
-    
 };
 
 #endif

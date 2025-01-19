@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
+/*   By: aldantas <aldantas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/28 21:37:38 by aldantas          #+#    #+#             */
-/*   Updated: 2024/09/03 00:44:43 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/18 18:29:10 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,5 @@ void Animal::makeSound() const{
 }
 
 /* Getters e Setters */
-const std::string Animal::getType() const{
-    return this->type;
-}
-
-void Animal::setType(std::string type){
-    this->type = type;
-}
+const std::string Animal::getType() const { return this->type; }
+void Animal::setType(std::string type) { this->type = type; }
