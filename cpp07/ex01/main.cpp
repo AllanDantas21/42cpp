@@ -11,7 +11,7 @@ void printString(const std::string &str) {
 
 int main() {
     int intArr[] = {1, 2, 3, 4, 5};
-    std::string strArr[] = {"Hello", "World", "42", "C++"};
+    std::string strArr[] = {"Hello", "World", "42rio", "C++"};
 
     std::cout << "Integer array: ";
     iter(intArr, 5, printInt);
