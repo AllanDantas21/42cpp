@@ -14,8 +14,6 @@ class AForm
 		bool				_is_signed;
 		const int			_grade_to_sign;
 		const int			_grade_to_exec;
-		static const int	lowest_grade = 150;
-		static const int	highest_grade = 1;
 		AForm();
 	public:
 		// Constructors

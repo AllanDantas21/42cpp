@@ -4,9 +4,9 @@
 AForm::AForm(const std::string& _name, const int _grade_to_sign, const int _grade_to_exec):
 	_name(_name), _is_signed(false), _grade_to_sign(_grade_to_sign), _grade_to_exec(_grade_to_exec)
 {
-	if (_grade_to_exec > 150 || _grade_to_sign > 150)
-		throw AForm::GradeTooHighException();
 	if (_grade_to_exec < 1 || _grade_to_sign < 1)
+		throw AForm::GradeTooHighException();
+	if (_grade_to_exec > 150 || _grade_to_sign > 150)
 		throw AForm::GradeTooLowException();
 }
 
