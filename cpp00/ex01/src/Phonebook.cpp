@@ -6,7 +6,7 @@
 /*   By: aldantas <aldantas@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/21 22:22:56 by aldantas          #+#    #+#             */
-/*   Updated: 2025/01/12 23:42:24 by aldantas         ###   ########.fr       */
+/*   Updated: 2025/01/20 15:47:33 by aldantas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,16 @@
 
 Phonebook::Phonebook() {
     _contactsCount = 0;
+}
+
+bool Phonebook::isContactValid(const Contact& contact) const {
+    return !contact.getFirstName().empty() && !contact.getLastName().empty() &&
+           !contact.getNickname().empty() && !contact.getPhoneNumber().empty() &&
+           !contact.getDarkestSecret().empty();
+}
+
+bool Phonebook::isValid(const std::string& field) const {
+    return !field.empty();
 }
 
 void Phonebook::addContact() {
@@ -51,8 +61,16 @@ void Phonebook::addContact() {
     std::getline(std::cin, darkestSecret);
     contact.setDarkestSecret(darkestSecret);
 
-    contacts[_contactsCount] = contact;
-    _contactsCount++;
+    if (isContactValid(contact)) {
+        contacts[_contactsCount] = contact;
+        _contactsCount++;
+    } else {
+        std::cout << "Error: All fields must be filled." << std::endl;
+    }
+}
+
+std::string formatField(const std::string& field) {
+    return field.length() > 10 ? field.substr(0, 9) + "." : field;
 }
 
 void Phonebook::searchContact() {
@@ -63,10 +81,14 @@ void Phonebook::searchContact() {
 
     std::cout << "     index|first name| last name|  nickname" << std::endl;
     for (int i = 0; i < _contactsCount; i++) {
+        std::string firstName = contacts[i].getFirstName();
+        std::string lastName = contacts[i].getLastName();
+        std::string nickname = contacts[i].getNickname();
+
         std::cout << std::setw(10) << i + 1 << "|";
-        std::cout << std::setw(10) << contacts[i].getFirstName().substr(0, 10) << "|";
-        std::cout << std::setw(10) << contacts[i].getLastName().substr(0, 10) << "|";
-        std::cout << std::setw(10) << contacts[i].getNickname().substr(0, 10) << std::endl;
+        std::cout << std::setw(10) << formatField(firstName) << "|";
+        std::cout << std::setw(10) << formatField(lastName) << "|";
+        std::cout << std::setw(10) << formatField(nickname) << std::endl;
     }
 
     std::string index;
@@ -75,11 +97,15 @@ void Phonebook::searchContact() {
 
     if (index.length() == 1 && index[0] >= '1' && index[0] <= '8') {
         int i = index[0] - '1';
-        std::cout << "First name: " << contacts[i].getFirstName() << std::endl;
-        std::cout << "Last name: " << contacts[i].getLastName() << std::endl;
-        std::cout << "Nickname: " << contacts[i].getNickname() << std::endl;
-        std::cout << "Phone number: " << contacts[i].getPhoneNumber() << std::endl;
-        std::cout << "Darkest secret: " << contacts[i].getDarkestSecret() << std::endl;
+        if (i < _contactsCount) {
+            std::cout << "First name: " << contacts[i].getFirstName() << std::endl;
+            std::cout << "Last name: " << contacts[i].getLastName() << std::endl;
+            std::cout << "Nickname: " << contacts[i].getNickname() << std::endl;
+            std::cout << "Phone number: " << contacts[i].getPhoneNumber() << std::endl;
+            std::cout << "Darkest secret: " << contacts[i].getDarkestSecret() << std::endl;
+        } else {
+            std::cout << "Invalid index" << std::endl;
+        }
     } else {
         std::cout << "Invalid index" << std::endl;
     }
