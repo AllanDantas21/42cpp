@@ -4,7 +4,6 @@
 #include <iomanip>
 #include <map>
 
-// Helper function to generate date key in C++98.
 static unsigned int generateKey(int y, int m, int d) {
     return y * 10000 + m * 100 + d;
 }
