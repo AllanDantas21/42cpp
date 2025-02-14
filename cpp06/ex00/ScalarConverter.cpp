@@ -20,7 +20,7 @@ void ScalarConverter::convert(const std::string &literal) {
 }
 
 void ScalarConverter::printChar(double value) {
-    if (std::isnan(value) || std::isinf(value) || value < std::numeric_limits<char>::min() || value > std::numeric_limits<char>::max()) {
+    if (std::isnan(value) ||  value < std::numeric_limits<char>::min() || value > std::numeric_limits<char>::max()) {
         std::cout << "char: impossible" << std::endl;
     } else if (!std::isprint(static_cast<char>(value))) {
         std::cout << "char: Non displayable" << std::endl;
@@ -30,7 +30,7 @@ void ScalarConverter::printChar(double value) {
 }
 
 void ScalarConverter::printInt(double value) {
-    if (std::isnan(value) || std::isinf(value) || value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max()) {
+    if (std::isnan(value) || value < std::numeric_limits<int>::min() || value > std::numeric_limits<int>::max()) {
         std::cout << "int: impossible" << std::endl;
     } else {
         std::cout << "int: " << static_cast<int>(value) << std::endl;
