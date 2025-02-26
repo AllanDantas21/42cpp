@@ -14,7 +14,6 @@ int main() {
         sp.addNumber(11);
         std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
         std::cout << "Longest span: " << sp.longestSpan() << std::endl;
-
  
         std::cout << "\nTeste com 10000 números:" << std::endl;
         Span bigSpan(10000);
@@ -29,19 +28,18 @@ int main() {
         std::cout << "Shortest span: " << bigSpan.shortestSpan() << std::endl;
         std::cout << "Longest span: " << bigSpan.longestSpan() << std::endl;
 
-        // Teste de exceções
         std::cout << "\nTestando exceções:" << std::endl;
         Span small(1);
         small.addNumber(5);
         try {
-            small.addNumber(3); // Deve lançar exceção
+            small.addNumber(3);
         } catch (const std::exception& e) {
             std::cout << "Exceção capturada: " << e.what() << std::endl;
         }
 
         Span empty(1);
         try {
-            empty.shortestSpan(); // Deve lançar exceção
+            empty.shortestSpan();
         } catch (const std::exception& e) {
             std::cout << "Exceção capturada: " << e.what() << std::endl;
         }
