@@ -8,6 +8,5 @@ int main(int ac, char* av[])
         return 1;
     }
 	PmergeMe pmergeMe(ac, av);
-	(void)pmergeMe;
     return 0;
 }
