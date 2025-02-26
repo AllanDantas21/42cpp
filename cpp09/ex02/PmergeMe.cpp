@@ -1,171 +1,87 @@
 #include "PmergeMe.hpp"
-#include <iostream>
 
-PmergeMe::PmergeMe() {};
+PmergeMe::PmergeMe(int ac, char **av){
 
-PmergeMe::PmergeMe(int ac, char **av) {
-	n = ac - 1;
-	level = std::ceil(log2(n));
-	k = std::pow(2, level);
-	for (int i = 0; i < k; i++) {
-		int num = i < n ? std::atoi(av[i + 1]) : -1;
-		if (i < n && num < 0) {
-			throw std::invalid_argument("argument is not a postivie number");
-		}
-		pair_v.push_back(num);
-		pair_d.push_back(num);
-	}
-}
+    std::deque<int> inputDeque;
+    std::list<int> inputList;
 
-PmergeMe::~PmergeMe() {};
-
-PmergeMe::PmergeMe(const PmergeMe& instance) {
-	*this = instance;
-}
-
-PmergeMe& PmergeMe::operator=(const PmergeMe& rvalue) {
-	if (this != &rvalue) {
-		this->pair_v = rvalue.pair_v;
-		this->pair_d = rvalue.pair_d;
-	}
-	return *this;
-}
-
-void PmergeMe::initPairV() {
-    for (int lv = 0; lv < level; lv++) {
-        int step = 1 << lv;  // equivalent to 2^lv
-        for (int i = 0; i < k; i += step) {
-            int mid = i + step / 2;
-            if (pair_v[i] < pair_v[mid]) {
-                for (int j = i; j < mid; j++)
-                    std::swap(pair_v[j], pair_v[j + step / 2]);
-            }
+    // fill the containers with random integers
+    srand(time(NULL));
+    for (int i = 1; i < ac; ++i)
+    {
+        int value = atoi(av[i]);
+        if (value <= 0)
+        {
+            std::cerr << "Error: Invalid input value \"" << av[i] << "\". Only positive integers are allowed." << std::endl;
+			exit(1);
         }
+        inputDeque.push_back(value);
+        inputList.push_back(value);
+    }
+    std::cout << "Before: ";
+    display(inputDeque);
+
+    clock_t start1 = clock();
+    mergeInsertSortDeque(inputDeque);
+    clock_t end1 = clock();
+    double time1 = static_cast<double>(end1 - start1) / CLOCKS_PER_SEC * 1000;
+
+    clock_t start2 = clock();
+    mergeInsertSortList(inputList);
+    clock_t end2 = clock();
+    double time2 = static_cast<double>(end2 - start2) / CLOCKS_PER_SEC * 1000;
+
+    std::cout << "After: ";
+    display(inputDeque);
+    std::cout << "Time to process a range of " << inputDeque.size() << " elements with std::deque container: " << time1 << " us" << std::endl;
+    std::cout << "Time to process a range of " << inputList.size() << " elements with std::list container: " << time2 << " us" << std::endl;
+    if (inputDeque == std::deque<int>(inputList.begin(), inputList.end()))
+        std::cout << "The sorted sequences are equal." << std::endl;
+    else
+        std::cout << "The sorted sequences are not equal." << std::endl;
+}
+
+template <typename T>
+void PmergeMe::display(const T& container)
+{
+    typename T::const_iterator it;
+    for (it = container.begin(); it != container.end(); ++it)
+        std::cout << *it << " ";
+    std::cout << std::endl;
+}
+
+void PmergeMe::mergeInsertSortDeque(std::deque<int>& arr)
+{
+    std::deque<int>::iterator it1, it2;
+    for (it1 = arr.begin() + 1; it1 != arr.end(); ++it1)
+    {
+        int temp = *it1;
+        it2 = it1;
+        while (it2 != arr.begin() && *(it2 - 1) > temp)
+        {
+            *it2 = *(it2 - 1);
+            --it2;
+        }
+        *it2 = temp;
     }
 }
 
-void PmergeMe::initPairD() {
-    for (int lv = 0; lv < level; lv++) {
-        int step = 1 << lv;  // equivalent to 2^lv
-        for (int i = 0; i < k; i += step) {
-            int mid = i + step / 2;
-            if (pair_d[i] < pair_d[mid]) {
-                for (int j = i; j < mid; j++)
-                    std::swap(pair_d[j], pair_d[j + step / 2]);
-            }
+void PmergeMe::mergeInsertSortList(std::list<int>& arr)
+{
+    std::list<int>::iterator it1, it2;
+    for (it1 = ++arr.begin(); it1 != arr.end(); ++it1)
+    {
+        int temp = *it1;
+        it2 = it1;
+        while (it2 != arr.begin())
+        {
+            std::list<int>::iterator prev_it = it2;
+            --prev_it;
+            if (*prev_it <= temp)
+                break;
+            *it2 = *prev_it;
+            --it2;
         }
+        *it2 = temp;
     }
-}
-
-bool comparePairs(const std::pair<int, int>& a, const std::pair<int, int>& b) {
-	return a.first <= b.first;
-}
-
-void PmergeMe::runVector() {
-	initPairV();
-	v.push_back(std::make_pair(pair_v[0], 0));
-	for (int lv = level - 1; lv > -1; lv--) {
-		// std::cout << "------\nlevel : " << lv << std::endl;
-		std::vector< std::pair<int, int> > single_tmp;
-		std::vector< std::pair<int, int> > tmp_v;
-		for (std::vector< std::pair<int, int> >::iterator it = v.begin(); it != v.end(); it++) {
-			int pair_idx = it->second + std::pow(2, lv);
-			if (pair_v[pair_idx] < 0)
-				single_tmp.push_back(*it);
-			else
-				tmp_v.push_back(*it);
-		}
-		for (std::vector< std::pair<int, int> >::iterator it = single_tmp.begin(); it != single_tmp.end(); it++) {
-			v.erase(std::find(v.begin(), v.end(), *it));
-		}
-		int start_idx = 0;
-		int jacob = 0;
-		while (start_idx < static_cast<int>(tmp_v.size())) {
-			for (int i = start_idx + jacob; i >= start_idx; i--) {
-				int pair_idx = tmp_v[i].second + std::pow(2, lv);
-				if (pair_v[pair_idx] < 0) {
-					continue;
-				}
-				std::pair<int, int> new_pair = std::make_pair(pair_v[pair_idx], pair_idx);
-				std::vector<std::pair<int, int> >::iterator it = std::find(v.begin(), v.end(), tmp_v[i]);
-				if (it != v.end())
-					it++;
-				v.insert(std::lower_bound(v.begin(), it, new_pair, comparePairs), new_pair);
-			}
-			start_idx += (jacob + 1);
-			int size_before = start_idx * 2 + 1;
-			jacob = std::pow(2, std::floor(log2(size_before)) + 1) - size_before - 1;
-			if (jacob < 0)
-				jacob = 0;
-			if (jacob > static_cast<int>(tmp_v.size()) - start_idx - 1)
-				jacob = static_cast<int>(tmp_v.size()) - start_idx - 1;
-		}
-		for (std::vector< std::pair<int, int> >::iterator it = single_tmp.begin(); it != single_tmp.end(); it++) {
-			std::pair<int, int> new_pair = *it;
-			v.insert(std::lower_bound(v.begin(), v.end(), new_pair, comparePairs), new_pair);
-		}
-	}
-}
-
-void PmergeMe::runDeque() {
-	initPairD();
-	d.push_back(std::make_pair(pair_d[0], 0));
-	for (int lv = level - 1; lv > -1; lv--) {
-		// std::cout << "------\nlevel : " << lv << std::endl;
-		std::deque< std::pair<int, int> > single_tmp;
-		std::deque< std::pair<int, int> > tmp_d;
-		for (std::deque< std::pair<int, int> >::iterator it = d.begin(); it != d.end(); it++) {
-			int pair_idx = it->second + std::pow(2, lv);
-			if (pair_d[pair_idx] < 0)
-				single_tmp.push_back(*it);
-			else
-				tmp_d.push_back(*it);
-		}
-		for (std::deque< std::pair<int, int> >::iterator it = single_tmp.begin(); it != single_tmp.end(); it++) {
-			d.erase(std::find(d.begin(), d.end(), *it));
-		}
-		int start_idx = 0;
-		int jacob = 0;
-		while (start_idx < static_cast<int>(tmp_d.size())) {
-			for (int i = start_idx + jacob; i >= start_idx; i--) {
-				int pair_idx = tmp_d[i].second + std::pow(2, lv);
-				if (pair_d[pair_idx] < 0) {
-					continue;
-				}
-				std::pair<int, int> new_pair = std::make_pair(pair_d[pair_idx], pair_idx);
-				std::deque<std::pair<int, int> >::iterator it = std::find(d.begin(), d.end(), tmp_d[i]);
-				if (it != d.end())
-					it++;
-				d.insert(std::lower_bound(d.begin(), it, new_pair, comparePairs), new_pair);
-			}
-			start_idx += (jacob + 1);
-			int size_before = start_idx * 2 + 1;
-			jacob = std::pow(2, std::floor(log2(size_before)) + 1) - size_before - 1;
-			if (jacob < 0)
-				jacob = 0;
-			if (jacob > static_cast<int>(tmp_d.size()) - start_idx - 1)
-				jacob = static_cast<int>(tmp_d.size()) - start_idx - 1;
-		}
-		for (std::deque< std::pair<int, int> >::iterator it = single_tmp.begin(); it != single_tmp.end(); it++) {
-			std::pair<int, int> new_pair = *it;
-			d.insert(std::lower_bound(d.begin(), d.end(), new_pair, comparePairs), new_pair);
-		}
-	}
-}
-
-
-std::vector<int> PmergeMe::getSortedVec() {
-	std::vector<int> res;
-	for (std::vector< std::pair<int, int> >::iterator it = v.begin(); it != v.end(); it++) {
-		res.push_back(it->first);
-	}
-	return res;
-}
-
-std::deque<int> PmergeMe::getSortedDeque() {
-	std::deque<int> res;
-	for (std::deque< std::pair<int, int> >::iterator it = d.begin(); it != d.end(); it++) {
-		res.push_back(it->first);
-	}
-	return res;
 }
