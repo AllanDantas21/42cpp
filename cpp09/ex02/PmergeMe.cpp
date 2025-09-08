@@ -1,5 +1,10 @@
 #include "PmergeMe.hpp"
 
+PmergeMe::PmergeMe() {}
+PmergeMe::PmergeMe(const PmergeMe& other) { (void)other; }
+PmergeMe& PmergeMe::operator=(const PmergeMe& other) { (void)other; return *this; }
+PmergeMe::~PmergeMe() {}
+
 PmergeMe::PmergeMe(int ac, char **av) {
 
     std::deque<int> inputDeque;
@@ -38,15 +43,6 @@ PmergeMe::PmergeMe(int ac, char **av) {
         std::cout << "The sorted sequences are equal." << std::endl;
     else
         std::cout << "The sorted sequences are not equal." << std::endl;
-}
-
-template <typename T>
-void PmergeMe::display(const T& container)
-{
-    typename T::const_iterator it;
-    for (it = container.begin(); it != container.end(); ++it)
-        std::cout << *it << " ";
-    std::cout << std::endl;
 }
 
 void PmergeMe::mergeInsertSortDeque(std::deque<int>& arr) {
