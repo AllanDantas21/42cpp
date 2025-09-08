@@ -7,7 +7,7 @@ int main(int argc, char *argv[]) {
 	std::string str(argv[1]);
 	RPN rpn = RPN(str);
 	try {
-		std::cout << rpn.init() << std::endl;
+		std::cout << rpn.process() << std::endl;
 	} catch (std::exception &e) {
 		std::cout << "Error: " << e.what() << std::endl;
 	}

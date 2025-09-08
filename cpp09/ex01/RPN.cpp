@@ -1,9 +1,34 @@
 #include "RPN.hpp"
-#include <iostream>
 #include <sstream>
 #include <stack>
-#include <list>
+#include <vector>
 #include <stdexcept>
+#include <cctype>
+
+namespace {
+    using IntStack = std::stack<int, std::vector<int> >;
+
+    static const char* kErrInvalidExpression = "Not valid expression";
+    static const char* kErrInvalidOperator = "Not valid operator";
+    static const char* kErrDivideByZero = "Divide by zero";
+
+    inline bool isOperator(char c) {
+        return c == '+' || c == '-' || c == '/' || c == '*';
+    }
+
+    inline int applyOperator(char op, int lhs, int rhs) {
+        switch (op) {
+            case '+': return lhs + rhs;
+            case '-': return lhs - rhs;
+            case '*': return lhs * rhs;
+            case '/':
+                if (rhs == 0) throw std::invalid_argument(kErrDivideByZero);
+                return lhs / rhs;
+            default:
+                throw std::invalid_argument(kErrInvalidOperator);
+        }
+    }
+}
 
 RPN::RPN(std::string &input): _input(input) {}
 
@@ -19,42 +44,33 @@ RPN& RPN::operator=(const RPN& rvalue) {
     return *this;
 }
 
-int RPN::init() {
-    std::stack<int, std::list<int> > s;
-    std::stringstream ss(_input);
+int RPN::process() {
+    IntStack values;
+    std::stringstream inputStream(_input);
 
-    char c;
-    while (ss >> c) {
-        if (isdigit(c)) {
-            s.push(c - '0');
-        } else if (c == '+' || c == '-' || c == '/' || c == '*') {
-            if (s.size() < 2)
-                throw std::invalid_argument("Not valid expression");
-
-            int rhs = s.top(); s.pop();
-            int lhs = s.top(); s.pop();
-            int res = 0;
-
-            switch (c) {
-                case '+': res = lhs + rhs; break;
-                case '-': res = lhs - rhs; break;
-                case '*': res = lhs * rhs; break;
-                case '/':
-                    if (rhs == 0)
-                        throw std::invalid_argument("Divide by zero");
-                    res = lhs / rhs;
-                    break;
-                default:
-                    throw std::invalid_argument("Not valid operator");
-            }
-            s.push(res);
-        } else {
-            throw std::invalid_argument("Not valid operator");
+    char token;
+    while (inputStream >> token) {
+        if (std::isdigit(static_cast<unsigned char>(token))) {
+            values.push(token - '0');
+            continue;
         }
+
+        if (isOperator(token)) {
+            if (values.size() < 2)
+                throw std::invalid_argument(kErrInvalidExpression);
+
+            int rhs = values.top(); values.pop();
+            int lhs = values.top(); values.pop();
+            const int result = applyOperator(token, lhs, rhs);
+            values.push(result);
+            continue;
+        }
+
+        throw std::invalid_argument(kErrInvalidOperator);
     }
 
-    if (s.size() != 1)
-        throw std::invalid_argument("Not valid expression");
+    if (values.size() != 1)
+        throw std::invalid_argument(kErrInvalidExpression);
 
-    return s.top();
+    return values.top();
 }

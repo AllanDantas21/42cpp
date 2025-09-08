@@ -15,14 +15,17 @@ class BitcoinExchange
     private:
         std::map<unsigned int, float> bitcoinPriceMap;
         BitcoinExchange();
-        void isValidDate(int y, int m, int d);
+        static unsigned int makeKey(int y, int m, int d);
+        static void validateDateOrThrow(int y, int m, int d);
+        static std::string formatDate(int y, int m, int d);
+        float findRateAtOrBefore(unsigned int key) const;
     public:
-        BitcoinExchange(const std::string dbName);
+        explicit BitcoinExchange(const std::string& dbName);
         BitcoinExchange(const BitcoinExchange& instance);
         BitcoinExchange& operator=(const BitcoinExchange& rvalue);
         ~BitcoinExchange();
 
-    void init(const std::string filename);
+    void process(const std::string& filename);
 };
 
 #endif

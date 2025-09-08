@@ -7,7 +7,6 @@
 # include <sstream>
 # include <cctype>
 # include <exception>
-# include <list>
 
 class RPN {
 	private:
@@ -19,7 +18,7 @@ class RPN {
 		~RPN();
 		RPN& operator=(const RPN& rvalue);
 
-		int init();
+		int process();
 };
 
 #endif
