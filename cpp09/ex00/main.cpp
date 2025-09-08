@@ -6,7 +6,7 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 	try {
-		BitcoinExchange bitcoinExchange("data.csv");
+		BitcoinExchange bitcoinExchange("data/data.csv");
 		bitcoinExchange.init(argv[1]);
 	} catch (std::exception &e) {
 		std::cout << "Error: " << e.what() << std::endl;
