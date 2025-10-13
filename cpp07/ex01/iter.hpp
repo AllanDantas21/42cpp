@@ -10,4 +10,11 @@ void iter(T *arr, uint len, void (*f)(const T&))
         f(arr[i]);
 }
 
+template <typename T>
+void iter(T *arr, uint len, void (*f)(T&))
+{
+    for (uint i = 0; i < len; i++)
+        f(arr[i]);
+}
+
 #endif
