@@ -3,10 +3,14 @@
 int main(int ac, char* av[])
 {
 	if (ac <= 1)
-    {
-        std::cerr << "Error: No input sequence provided." << std::endl;
-        return 1;
+        return (std::cerr << "Error: No input sequence provided.\n", 1);
+
+    try {
+        PmergeMe pmergeMe(ac, av);
+        pmergeMe.execute();
+    } catch (const std::exception& e) {
+        return (std::cerr << e.what() << "\n", 1);
     }
-	PmergeMe pmergeMe(ac, av);
-    return 0;
+    
+    return (0);
 }

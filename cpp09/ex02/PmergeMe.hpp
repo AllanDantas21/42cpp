@@ -4,31 +4,79 @@
 #include <iostream>
 #include <deque>
 #include <list>
+#include <vector>
 #include <algorithm>
 #include <ctime>
 #include <cstdlib>
+#include <sstream>
+#include <stdexcept>
+#include <utility>
+#include <typeinfo>
 
 class PmergeMe
 {
-	public:
-		PmergeMe();
-		PmergeMe(const PmergeMe& other);
-		PmergeMe& operator=(const PmergeMe& other);
-		~PmergeMe();
+private:
+    std::vector<int> inputData;
+    
+    void fordJohnsonSortDeque(std::deque<int>& container);
+    void fordJohnsonSortList(std::list<int>& container);
+    
+    std::vector<std::pair<int, int> > createPairsDeque(std::deque<int>& container, int& unpaired);
+    std::vector<std::pair<int, int> > createPairsList(std::list<int>& container, int& unpaired);
+    
+    void insertElementsDeque(std::deque<int>& result, const std::vector<int>& elements);
+    void insertElementsList(std::list<int>& result, const std::vector<int>& elements);
+    
+    void insertPendElementsDeque(std::deque<int>& result, 
+        const std::vector<int>& pendChain, 
+        const std::vector<int>& mainChain);
+    void insertPendElementsList(std::list<int>& result, 
+        const std::vector<int>& pendChain, 
+        const std::vector<int>& mainChain);
+    
+    void insertUnpaired(std::deque<int>& result, int unpaired);
+    void insertUnpaired(std::list<int>& result, int unpaired);
+    
+    void sortPairsByComparison(std::vector<std::pair<int, int> >& pairs);
+    std::vector<int> generateJacobsthalSequence(int n);
+    
+    void separatePairsIntoChainsDeque(const std::vector<std::pair<int, int> >& pairs,
+                                      std::vector<int>& mainChain,
+                                      std::vector<int>& pendChain);
+    void separatePairsIntoChainsList(const std::vector<std::pair<int, int> >& pairs,
+                                     std::vector<int>& mainChain,
+                                     std::vector<int>& pendChain);
+    
+    void recursiveSortMainChainDeque(std::vector<int>& mainChain);
+    void recursiveSortMainChainList(std::vector<int>& mainChain);
+    
+    void buildSortedResultDeque(std::deque<int>& result,
+                                const std::vector<int>& mainChain,
+                                const std::vector<int>& pendChain,
+                                int unpaired);
+    void buildSortedResultList(std::list<int>& result,
+                               const std::vector<int>& mainChain,
+                               const std::vector<int>& pendChain,
+                               int unpaired);
+    
+    void parseInput(int ac, char** av);
+    bool isValidNumber(const std::string& str);
+    
+    double measureSortTimeDeque(std::deque<int>& container);
+    double measureSortTimeList(std::list<int>& container);
 
-		PmergeMe(int ac, char **av);
+public:
+    PmergeMe();
+    PmergeMe(const PmergeMe& other);
+    PmergeMe& operator=(const PmergeMe& other);
+    ~PmergeMe();
 
-		template <typename T>
-		void display(const T& container)
-		{
-			typename T::const_iterator it;
-			for (it = container.begin(); it != container.end(); ++it)
-				std::cout << *it << " ";
-			std::cout << std::endl;
-		}
-		
-		void mergeInsertSortDeque(std::deque<int>& arr);
-		void mergeInsertSortList(std::list<int>& arr);
+    explicit PmergeMe(int ac, char **av);
+
+    void displayDeque(const std::deque<int>& container) const;
+    void displayList(const std::list<int>& container) const;
+    
+    void execute();
 };
 
 #endif
