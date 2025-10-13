@@ -5,33 +5,13 @@
 #include <stdexcept>
 #include <cctype>
 
-namespace {
-    using IntStack = std::stack<int, std::vector<int> >;
-
-    static const char* kErrInvalidExpression = "Not valid expression";
-    static const char* kErrInvalidOperator = "Not valid operator";
-    static const char* kErrDivideByZero = "Divide by zero";
-
-    inline bool isOperator(char c) {
-        return c == '+' || c == '-' || c == '/' || c == '*';
-    }
-
-    inline int applyOperator(char op, int lhs, int rhs) {
-        switch (op) {
-            case '+': return lhs + rhs;
-            case '-': return lhs - rhs;
-            case '*': return lhs * rhs;
-            case '/':
-                if (rhs == 0) throw std::invalid_argument(kErrDivideByZero);
-                return lhs / rhs;
-            default:
-                throw std::invalid_argument(kErrInvalidOperator);
-        }
-    }
-}
+static const char* kErrInvalidExpression = "Not valid expression";
+static const char* kErrInvalidOperator = "Not valid operator";
+static const char* kErrDivideByZero = "Divide by zero";
+static bool isOperator(char c);
+static int applyOperator(char op, int lhs, int rhs);
 
 RPN::RPN(std::string &input): _input(input) {}
-
 RPN::~RPN() {}
 
 RPN::RPN(const RPN& instance) {
@@ -45,7 +25,7 @@ RPN& RPN::operator=(const RPN& rvalue) {
 }
 
 int RPN::process() {
-    IntStack values;
+    std::stack<int> values;
     std::stringstream inputStream(_input);
 
     char token;
@@ -73,4 +53,21 @@ int RPN::process() {
         throw std::invalid_argument(kErrInvalidExpression);
 
     return values.top();
+}
+
+static bool isOperator(char c) {
+    return c == '+' || c == '-' || c == '/' || c == '*';
+}
+
+static int applyOperator(char op, int lhs, int rhs) {
+    switch (op) {
+        case '+': return lhs + rhs;
+        case '-': return lhs - rhs;
+        case '*': return lhs * rhs;
+        case '/':
+            if (rhs == 0) throw std::invalid_argument(kErrDivideByZero);
+            return lhs / rhs;
+        default:
+            throw std::invalid_argument(kErrInvalidOperator);
+    }
 }
