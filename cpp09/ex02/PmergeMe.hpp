@@ -48,7 +48,7 @@ public:
     PmergeMe& operator=(const PmergeMe& other);
     ~PmergeMe();
 
-    explicit PmergeMe(int ac, char **av);
+    PmergeMe(int ac, char **av);
 
     void displayDeque(const std::deque<int>& container) const;
     void displayList(const std::list<int>& container) const;
