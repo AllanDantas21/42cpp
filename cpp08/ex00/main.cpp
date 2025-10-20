@@ -14,12 +14,14 @@ void testEasyFind(T &container, int value) {
 }
 
 int main() {
-    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-    std::vector<int> v(arr, arr + sizeof(arr) / sizeof(arr[0]));
-    std::list<int> l(arr, arr + sizeof(arr) / sizeof(arr[0]));
+    int arr[] = {1, 2, 3, 4, 5};
+    std::vector<int> v(arr, arr + 5);
+    std::list<int> l(arr, arr + 5);
 
     testEasyFind(v, 3);
-    testEasyFind(l, 213);
+    testEasyFind(v, 6);
+    testEasyFind(l, 2);
+    testEasyFind(l, -1);
 
     return 0;
 }
