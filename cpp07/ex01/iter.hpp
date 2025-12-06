@@ -3,15 +3,8 @@
 
 typedef unsigned int uint;
 
-template <typename T>
-void iter(T *arr, const uint len, void (*f)(const T&))
-{
-    for (uint i = 0; i < len; i++)
-        f(arr[i]);
-}
-
-template <typename T>
-void iter(T *arr, const uint len, void (*f)(T&))
+template <typename T, typename F>
+void iter(T *arr, const uint len, F f)
 {
     for (uint i = 0; i < len; i++)
         f(arr[i]);
