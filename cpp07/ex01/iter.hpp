@@ -4,14 +4,14 @@
 typedef unsigned int uint;
 
 template <typename T>
-void iter(T *arr, uint len, void (*f)(const T&))
+void iter(T *arr, const uint len, void (*f)(const T&))
 {
     for (uint i = 0; i < len; i++)
         f(arr[i]);
 }
 
 template <typename T>
-void iter(T *arr, uint len, void (*f)(T&))
+void iter(T *arr, const uint len, void (*f)(T&))
 {
     for (uint i = 0; i < len; i++)
         f(arr[i]);

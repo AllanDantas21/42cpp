@@ -16,7 +16,8 @@ Array<T>::Array(const Array& instance) : _arr(NULL), _size(0)
 template <typename T>
 Array<T>::~Array()
 {
-    delete[] _arr;
+    if (_arr != NULL)
+        delete[] _arr;
 }
 
 template <typename T>
