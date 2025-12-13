@@ -1,7 +1,6 @@
 #include "RPN.hpp"
 #include <sstream>
 #include <stack>
-#include <vector>
 #include <stdexcept>
 #include <cctype>
 

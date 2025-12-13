@@ -9,6 +9,7 @@ int main(int argc, char *argv[]) {
 	try {
 		std::cout << rpn.process() << std::endl;
 	} catch (std::exception &e) {
-		std::cout << "Error: " << e.what() << std::endl;
+		std::cerr << "Error" << std::endl;
+		return 1;
 	}
 }
