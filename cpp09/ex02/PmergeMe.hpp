@@ -27,13 +27,11 @@ private:
     void insertPendElementsList(std::list<int>& result, const std::vector<int>& pendChain);
     void insertUnpaired(std::vector<int>& result, int unpaired);
     void insertUnpaired(std::list<int>& result, int unpaired);
-    void sortPairsByComparison(std::vector<std::pair<int, int> >& pairs);
     std::vector<int> generateJacobsthalSequence(int n);
-    void separatePairsIntoChains(const std::vector<std::pair<int, int> >& pairs, std::vector<int>& mainChain, std::vector<int>& pendChain);
     void recursiveSortMainChainVector(std::vector<int>& mainChain);
-    void recursiveSortMainChainList(std::vector<int>& mainChain);
+    void recursiveSortMainChainList(std::list<int>& mainChain);
     void buildSortedResultVector(std::vector<int>& result, const std::vector<int>& mainChain, const std::vector<int>& pendChain, int unpaired);
-    void buildSortedResultList(std::list<int>& result, const std::vector<int>& mainChain, const std::vector<int>& pendChain, int unpaired);
+    void buildSortedResultList(std::list<int>& result, const std::list<int>& mainChain, const std::vector<int>& pendChain, int unpaired);
     void parseInput(int ac, char** av);
     bool isValidNumber(const std::string& str);
     double measureSortTimeVector(std::vector<int>& container);
